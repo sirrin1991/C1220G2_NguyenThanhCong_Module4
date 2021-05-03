@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head"><title>PRODUCT MANAGEMENT</title></head>
+<body>
+<h3>Product management</h3>
+<p>
+    <a th:href="@{/create}">
+        Add new product
+    </a>
+</p>
+<p>
+    <a th:href="@{/}">
+        Back to product list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/search}" th:object="${product}"
+          method="POST" novalidate="novalidate">
+        <label for="nameSearch">Name</label>
+        <input id="nameSearch" type="text" th:field="*{name}"/>
+        <input type="submit" value="Search"/>
+    </form>
+</div>
+
+<div class="notify">
+    <!--/*@thymesVar id="success" type="AppConfiguration"*/-->
+    <div th:if="${success}">
+        <h1 style="color: red" th:text="${success}"></h1>
+    </div>
+</div>
+
+<table id="product">
+    <thead>
+    <tr>
+        <th>Serial</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Color</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${products}">
+        <td th:text="${rowStat.count}"></td>
+        <td th:text="${row.getName()}"></td>
+        <td th:text="${row.getPrice()}"></td>
+        <td th:text="${row.getDescription()}"></td>
+        <td th:text="${row.getColor()}"></td>
+        <td><a th:href="@{/{id}/edit(id=${row.getId()})}">edit</a></td>
+        <td><a th:href="@{/{id}/delete(id=${row.getId()})}">delete</a></td>
+        <td><a th:href="@{/{id}/view(id=${row.getId()})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+<footer th:replace="/layout :: footer"></footer>
+</html>
