@@ -1,0 +1,30 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h3>${mess}</h3>
+    <fieldset>
+        <legend><h3>Account's information</h3></legend>
+        <table>
+            <tr>
+                <td>Account</td>
+                <td>${user.account}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>${user.name}</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>${user.age}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>${user.email}</td>
+            </tr>
+        </table>
+    </fieldset>
+</body>
+</html>
