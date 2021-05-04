@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Add new product</h3>
+<p>
+    <a th:href="@{/}">
+        Back to customer list
+    </a>
+</p>
+<div class="notify">
+    <!--/*@thymesVar id="success" type="AppConfiguration"*/-->
+    <div th:if="${success}">
+        <h1 style="color: red" th:text="${success}"></h1>
+    </div>
+</div>
+<div id="form">
+    <form th:action="@{/save}" th:object="${customer}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>FirstName</label>
+            <input type="text" th:field="*{firstName}"/>
+        </div>
+        <div>
+            <label>LastName</label>
+            <input type="text" th:field="*{lastName}"/>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
