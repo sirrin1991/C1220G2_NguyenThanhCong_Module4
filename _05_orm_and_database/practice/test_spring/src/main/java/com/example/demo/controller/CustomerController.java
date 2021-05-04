@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import java.util.List;
@@ -44,5 +46,33 @@ public class CustomerController {
     public ModelAndView showEditPage(@PathVariable int id){
         Customer customer = customerService.findById(id);
         return new ModelAndView("edit","customer",customer);
+    }
+
+    @PostMapping("/edit")
+    public String editCustomer(Customer customer, RedirectAttributes ra){
+        customerService.saveCustomer(customer);
+        ra.addFlashAttribute("success","updated customer successfully");
+        return "redirect:/";
+    }
+
+    @GetMapping("/{id}/delete")
+    public ModelAndView showDeletePage(@PathVariable int id){
+        Customer customer = customerService.findById(id);
+        return new ModelAndView("delete","customer",customer);
+    }
+
+    @PostMapping("/delete")
+    public String deleteCustomer(Customer customer, @RequestParam String submit,RedirectAttributes ra){
+        if(submit.equals("Delete")){
+            customerService.deleteCustomer(customer.getId());
+            ra.addFlashAttribute("success","Deleted customer successfully");
+        }
+        return "redirect:/";
+    }
+
+    @GetMapping("/{id}/view")
+    public ModelAndView viewCustomer(@PathVariable int id){
+        Customer customer = customerService.findById(id);
+        return new ModelAndView("view","customer",customer);
     }
 }

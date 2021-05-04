@@ -2,34 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: head"></head>
 <body>
-<h3>Product's information</h3>
+<h3>Customer's information</h3>
 <p>
     <a th:href="@{/}">
-        Back to product list
+        Back to customer list
     </a>
 </p>
-<div th:object="${product}">
+<div th:object="${customer}">
 <table id = "product">
     <thead>
     <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Color</th>
-        <th>Edit</th>
-        <th>Delete</th>
-        <th>View</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td th:text="*{name}"></td>
-        <td th:text="*{price}"></td>
-        <td th:text="*{description}"></td>
-        <td th:text="*{color}"></td>
-        <td><a th:href="@{/{id}/edit(id=*{id})}">edit</a></td>
-        <td><a th:href="@{/{id}/delete(id=*{id})}">delete</a></td>
-        <td><a th:href="@{/{id}/view(id=*{id})}">view</a></td>
+        <td th:text="*{firstName}"></td>
+        <td th:text="*{lastName}"></td>
+        <td>
+            <a th:href="@{/{id}/edit(id=${customer.getId()})}">edit |</a>
+            <a th:href="@{/{id}/delete(id=${customer.getId()})}">delete |</a>
+            <a th:href="@{/{id}/view(id=${customer.getId()})}">view</a>
+        </td>
     </tr>
     </tbody>
 </table>
