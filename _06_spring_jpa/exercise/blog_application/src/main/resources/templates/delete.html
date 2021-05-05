@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Are you sure to delete this blog ?</h3>
+<div id="form">
+    <form  th:action="@{/delete}" th:object="${blog}"
+           method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{blogName}" readonly/>
+        </div>
+        <div>
+            <label>Price</label>
+            <textarea th:field="*{content}" readonly></textarea>
+        </div>
+        <input type="submit" style="background-color: red" name="submit" value="Delete"/>
+        <input type="submit" name="submit" value="Cancel"/>
+    </form>
+</div>
+</body>
+<footer th:fragment="footer"></footer>

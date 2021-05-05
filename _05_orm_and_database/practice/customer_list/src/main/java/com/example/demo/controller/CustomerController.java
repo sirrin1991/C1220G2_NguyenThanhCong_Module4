@@ -35,7 +35,6 @@ public class CustomerController {
 
     @PostMapping("/save")
     public String createNewCustomer(Customer customer, Model model){
-        customer.setId (customerService.findAll().size()+1);
         customerService.saveCustomer(customer);
         model.addAttribute("customer",new Customer());
         model.addAttribute("success","Created new customer successfully");
