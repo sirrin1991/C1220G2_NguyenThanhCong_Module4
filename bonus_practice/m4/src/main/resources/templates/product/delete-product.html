@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{layout::head}"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:insert="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3 style="text-align: center">Are you sure to delete this product ?</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" style="background-color: #e5c8ff">
+            <form th:action="@{/product/delete}" th:object="${product}" method="post">
+                <div class="form-group">
+                    <input th:field="*{id}" hidden>
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="pp">Price</label>
+                    <input type="number" class="form-control" id="pp" th:field="*{price}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="pd">Detail</label>
+                    <input type="text" class="form-control" id="pd" th:field="*{productDetail.description}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="selectCategory">Category : </label>
+                    <input id="selectCategory" th:field="*{category.name}" readonly>
+                    <div class="form-group">
+                        <button class="btn btn-danger ml-1" name="submit" value="Delete" type="submit">Delete</button>
+                        <button class="btn btn-primary ml-1" name="submit" type="submit">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

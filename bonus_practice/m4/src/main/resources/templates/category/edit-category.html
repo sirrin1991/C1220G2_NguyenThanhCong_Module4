@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{layout::head}"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:insert="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <button class="btn btn-primary ml-1">
+                <a th:href="@{/category}" class="text-white">Back to category's list</a>
+            </button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <form th:action="@{/category/edit}" th:object="${category}" method="post">
+                <div class="form-group">
+                    <input th:field="*{id}" hidden>
+                    <label for="pn">Name :</label>
+                    <input type="text" class="form-control" id="pn" th:field="*{name}" >
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary ml-1" type="submit">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{layout::head}"></head>
+<body>
+<div class="container" style="background-color: white">
+    <div class="row">
+        <div class="col-12">
+            <div th:insert="~{layout::menu}"></div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-3" style="background-color: cornsilk">
+            <div class="row ml-3">
+                <h3 style="color: olivedrab">Category :</h3>
+            </div>
+            <div class="row">
+                <ul>
+                    <li th:each="category : ${categories}">
+                        <a th:href="@{'/categorySearch=' + ${category.name}}" th:text="${category.name}"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row mt-3">
+                <button class="btn btn-primary ml-1">
+                    <a th:href="@{/product/create}" class="text-white">Create new product</a>
+                </button>
+            </div>
+            <th:block th:if="${msg}">
+                <h3 style="color: blue" th:text="${msg}"></h3>
+            </th:block>
+            <div class="row mt-3">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <h2 style="text-align: center;color: olivedrab">Product List</h2>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Product's name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.name}"></td>
+                        <td th:text="${product.category.name}"></td>
+                        <td th:text="${product.price}"></td>
+                        <td>
+                            <a th:href="@{/product/{id}/edit(id=${product.id})}">Edit |</a>
+                            <a th:href="@{/product/{id}/delete(id=${product.id})}">Delete |</a>
+                            <a th:href="@{/product/{id}/view(id=${product.id})}">View </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                <a th:href="@{'/'(page=${products.number - 1},categorySearch=${categorySearch})}" th:if="${products.hasPrevious()}">Previous</a>
+                <span th:text="${products.number + 1}"></span>/<span th:text="${products.totalPages}"></span>
+                <a th:href="@{'/'(page=${products.number + 1},categorySearch=${categorySearch})}" th:if="${products.hasNext()}">Next</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

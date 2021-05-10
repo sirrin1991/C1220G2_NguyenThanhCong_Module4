@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url("BG2.jpg");
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<div  class="container">
+    <div th:fragment="menu" class="row">
+        <div class="col-3"></div>
+        <div class="col-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" th:href="@{/}">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/category}">Category</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="col-4">
+            <form class="form-inline my-2 my-lg-0" th:action="@{/}">
+                <input class="form-control mr-sm-2" name="nameBlog" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-4" style="background-color: cornsilk" >
+            <div class="row">
+                <div class="col-12"><h3 style="color: red"><i><u>Categories :</u></i></h3></div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <form class="form-group my-2 my-lg-0" th:action="@{/}">
+                        <th:block th:each="catogery : ${categories}">
+                            <div class="form-group">
+                            <input type="radio" name="categorySearch" th:value="${catogery.name}">
+                            <label th:text="${catogery.name}"></label>
+                            </div>
+                        </th:block>
+                        <div class="form-group">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="row mt-3">
+                <div class="col-12">
+                    <button class="btn btn-primary ml-1">
+                        <a th:href="@{/blog/create}" class="text-white">Write new blog</a>
+                    </button>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div th:if="${msg}">
+                        <h3 style="color: red" th:text="${msg}"></h3>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Blog's name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Date of post</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="blog : ${blogs}">
+                            <td th:text="${blog.name}"></td>
+                            <td th:text="${blog.category.name}"></td>
+                            <td th:text="${blog.postDate}"></td>
+                            <td>
+                                <a th:href="@{/blog/{id}/edit(id=${blog.id})}">Edit |</a>
+                                <a th:href="@{/blog/{id}/delete(id=${blog.id})}">Delete |</a>
+                                <a th:href="@{/blog/{id}/view(id=${blog.id})}">View </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <a th:href="@{'/'(page=${blogs.number - 1},categorySearch=${categorySearch})}" th:if="${blogs.hasPrevious()}">Previous</a>
+                        <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
+                        <a th:href="@{'/'(page=${blogs.number + 1},categorySearch=${categorySearch})}" th:if="${blogs.hasNext()}">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:fragment="footer">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</footer>
+</body>
+</html>

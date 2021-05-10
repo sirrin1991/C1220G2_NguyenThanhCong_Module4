@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{homepage::head}"></head>
+<body>
+    <div class="container">
+        <div th:insert="~{homepage::menu}"></div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <button class="btn btn-primary ml-1">
+                    <a th:href="@{/customer/add}" class="text-white">Add new customer</a>
+                </button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">FirstName</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">Province</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:object="${customer}">
+                        <td th:text="${customer.id}" hidden></td>
+                        <td th:text="${customer.firstName}"></td>
+                        <td th:text="${customer.lastName}"></td>
+                        <td th:text="${customer.province.name}"></td>
+                        <td>
+                            <a th:href="@{/customer/{id}/edit(id=${customer.id})}">Edit |</a>
+                            <a th:href="@{/customer/{id}/delete(id=${customer.id})}">Delete </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <footer th:insert="~{homepage::footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{homepage::head}"></head>
+<body>
+<div class="container">
+    <div th:insert="~{homepage::menu}"></div>
+    <div class="row mt-3">
+        <div class="col-4">
+            <button class="btn btn-primary ml-1">
+                <a th:href="@{/customer}" class="text-white"> Back to customer list</a>
+            </button>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <div th:if="${success}">
+                <h3 style="color: red" th:text="${success}"></h3>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12" style="background-color: #e3dcff">
+                    <h3>Create new customer</h3>
+                </div>
+            </div>
+            <div class="row">
+                <form th:action="@{/customer/add-new-customer}" th:object="${customer}" method="post">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" th:field="*{firstName}"
+                                   id="firstName" placeholder="Input customer's first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" th:field="*{lastName}"
+                                   id="lastName" placeholder="Input customer's last name">
+                        </div>
+                        <div class="form-group">
+                            <label for="provinceSelect">Province Name</label>
+                            <select id="provinceSelect" class="custom-select" th:field="*{province}">
+                                <option th:each="p : ${province}" th:value="${p.provinceId}"
+                                        th:text="${p.name}"></option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </form>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+</div>
+
+
+<footer th:insert="~{homepage::footer}"></footer>
+</body>
+</html>

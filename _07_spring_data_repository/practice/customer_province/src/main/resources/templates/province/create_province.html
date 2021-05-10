@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{homepage::head}"></head>
+<body>
+    <div class="container">
+        <div th:insert="~{homepage::menu}"></div>
+        <div class="row mt-3">
+            <div class="col-4">
+                <button class="btn btn-primary ml-1">
+                    <a th:href="@{/province}" class="text-white"> Back to province list</a>
+                </button>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <div th:if="${success}">
+                    <h3 style="color: red" th:text="${success}"></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h3 style="background-color: #e3dcff">Create new Province</h3>
+                <form th:action="@{/province/add-new-province}" th:object="${province}" method="post">
+                    <div class="form-group">
+                        <label for="nameProvince">Province Name</label>
+                        <input type="text" class="form-control" th:field="*{name}"
+                               id="nameProvince" placeholder="Input province's name">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </form>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+    <footer th:insert="~{homepage::footer}"></footer>
+</body>
+</html>

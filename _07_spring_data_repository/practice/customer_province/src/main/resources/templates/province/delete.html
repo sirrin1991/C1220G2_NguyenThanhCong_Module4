@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{homepage::head}"></head>
+<body>
+<div class="container">
+    <div th:insert="~{homepage::menu}"></div>
+    <div  class="row mt-3">
+        <div class="col-4">
+            <button class="btn btn-primary ml-1">
+                <a th:href="@{/province}" class="text-white"> Back to province list</a>
+            </button>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12" style="background-color: #e3dcff">
+                    <h3>Are you sure to delete this province ?</h3>
+                </div>
+            </div>
+            <div class="row">
+                <form th:action="@{/province/delete-province}" th:object="${province}" method="post">
+                    <div class="form-group">
+                        <input type="text" th:field="*{provinceId}" hidden>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" th:field="*{name}"
+                               id="firstName" readonly>
+                    </div>
+                    <button type="submit" name="submit" value="Delete" class="btn btn-primary">Delete</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Cancel</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+<footer th:insert="~{homepage::footer}"></footer>
+</body>
+</html>
