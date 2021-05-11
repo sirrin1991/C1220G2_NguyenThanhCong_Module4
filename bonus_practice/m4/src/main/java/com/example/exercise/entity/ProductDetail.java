@@ -11,7 +11,7 @@ public class ProductDetail {
     private Integer id;
     private String description;
 
-    @OneToOne(mappedBy = "productDetail" ,cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "productDetail")
     private Product product;
 
     public ProductDetail() {

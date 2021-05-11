@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Information</title>
+    <style>
+        table,tr,td{
+            border: 1px ; border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<div th:object="${register}">
+    <h3>Register information</h3>
+    <table>
+        <tr>
+            <td>First name :</td>
+            <td th:text="${register.firstName}"></td>
+        </tr>
+        <tr>
+            <td>Last name :</td>
+            <td th:text="${register.lastName}"></td>
+        </tr>
+        <tr>
+            <td>Phone number :</td>
+            <td th:text="${register.phone}"></td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td th:text="${register.email}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

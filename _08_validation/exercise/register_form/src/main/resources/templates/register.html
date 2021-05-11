@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Form</title>
+</head>
+<body>
+<form th:action="@{/create}" method="post" th:object="${register}">
+    <fieldset>
+        <legend>Register Form</legend>
+        <table>
+            <tr>
+                <td>FirstName :</td>
+                <td><input type="text" th:field="*{firstName}"></td>
+                <td style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></td>
+            </tr>
+            <tr>
+                <td>LastName : </td>
+                <td><input type="text" th:field="*{lastName}"></td>
+                <td style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></td>
+            </tr>
+            <tr>
+                <td>Phone number : </td>
+                <td><input type="text" th:field="*{phone}"></td>
+                <td style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></td>
+            </tr>
+            <tr>
+                <td>FirstName : </td>
+                <td><input type="text" th:field="*{email}"></td>
+                <td style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="submit"></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+</body>
+</html>

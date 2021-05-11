@@ -17,7 +17,7 @@
             <div class="row">
                 <ul>
                     <li th:each="category : ${categories}">
-                        <a th:href="@{'/categorySearch=' + ${category.name}}" th:text="${category.name}"></a>
+                        <a th:href="@{'/?categorySearch=' + ${category.name}}" th:text="${category.name}"></a>
                     </li>
                 </ul>
             </div>
@@ -64,9 +64,9 @@
             </div>
 
             <div class="row">
-                <a th:href="@{'/'(page=${products.number - 1},categorySearch=${categorySearch})}" th:if="${products.hasPrevious()}">Previous</a>
+                <a th:href="@{'/'(categorySearch=${categorySearch},page=${products.number - 1})}" th:if="${products.hasPrevious()}">Previous</a>
                 <span th:text="${products.number + 1}"></span>/<span th:text="${products.totalPages}"></span>
-                <a th:href="@{'/'(page=${products.number + 1},categorySearch=${categorySearch})}" th:if="${products.hasNext()}">Next</a>
+                <a th:href="@{'/'(categorySearch=${categorySearch},page=${products.number + 1})}" th:if="${products.hasNext()}">Next</a>
             </div>
         </div>
     </div>

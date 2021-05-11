@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{layout::head}"></head>
 <body>
-
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:insert="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3 style="text-align: center">Product Information</h3>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <button class="btn btn-primary ml-1">
+                <a th:href="@{/}" class="text-white">Back to product's list</a>
+            </button>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-12">
+            <table class="table table-striped" th:object="${product}" >
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${product.id}" hidden></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.category.name}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td th:text="${product.productDetail.description}"></td>
+                    <td>
+                        <a th:href="@{/product/{id}/edit(id=${product.id})}">Edit |</a>
+                        <a th:href="@{/product/{id}/delete(id=${product.id})}">Delete |</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>

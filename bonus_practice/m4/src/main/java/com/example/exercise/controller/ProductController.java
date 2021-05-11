@@ -63,4 +63,10 @@ public class ProductController {
         }
         return "redirect:/";
     }
+
+    @GetMapping("/{id}/view")
+    public ModelAndView showProductInformation(@PathVariable Integer id){
+        return new ModelAndView("/product/view-product","product",productService.findById(id));
+    }
+
 }
