@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+<h3>Welcome to library</h3>
+
+<div th:if="${abc}">
+    <h3 style="color: red" th:text="${abc}"></h3>
+</div>
+
+<div th:if="${msg}">
+    <h3 style="color: red" th:text="${msg}"></h3>
+</div>
+
+<button><a th:href="@{/borrow}">Mượn sách</a></button>
+<button><a th:href="@{/return}">Trả sách</a></button>
+</body>
+</html>

@@ -1,24 +1,39 @@
 package com.example.library.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "book")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "book_id")
     private Integer id;
 
     private String name;
+
     private Integer quantity;
+
+    @OneToMany(mappedBy = "book",cascade = CascadeType.ALL)
+    private Set<PersonalCode> codeSet;
 
     public Book() {
     }
 
-    public Book(Integer id, String name, Integer quantity) {
+    public Book(Integer id, String name, Integer quantity, Set<PersonalCode> codeSet) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
+        this.codeSet = codeSet;
+    }
+
+    public Set<PersonalCode> getCodeSet() {
+        return codeSet;
+    }
+
+    public void setCodeSet(Set<PersonalCode> codeSet) {
+        this.codeSet = codeSet;
     }
 
     public Integer getId() {

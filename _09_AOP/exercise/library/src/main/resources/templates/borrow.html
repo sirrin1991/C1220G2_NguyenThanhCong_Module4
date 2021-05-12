@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>.....</title>
+    <style>
+        table, tr, td {
+            border: 1px;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h3>Chọn sách bạn muốn mượn</h3>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Action</td>
+    </tr>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.name}"></td>
+        <td>
+            <a th:href="@{/borrow/{id}/borrow(id=${book.id})}">Mượn</a>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>
