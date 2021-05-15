@@ -1,9 +1,7 @@
 package com.example.demowebservice.controller;
 
 import com.example.demowebservice.model.Customer;
-import com.example.demowebservice.model.Province;
 import com.example.demowebservice.service.CustomerService;
-import com.example.demowebservice.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +13,6 @@ import java.util.List;
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
-
-    @Autowired
-    private ProvinceService provinceService;
-
 
     @GetMapping("/")
     public ResponseEntity<List<Customer>> getHomePage(){
@@ -43,18 +37,25 @@ public class CustomerController {
         customerService.saveCustomer(customer);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-    @PostMapping("/create-province")
-    public ResponseEntity<Province> addNewProvince(Province province){
-        provinceService.saveProvince(province);
-        return new ResponseEntity<>(HttpStatus.OK);
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Customer> editCustomer(@RequestBody Customer customer,@PathVariable int id){
+        Customer oldCustomer = customerService.findById(id);
+        if(oldCustomer == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        customer.setId(id);
+        customerService.saveCustomer(customer);
+        return new ResponseEntity<>(customer,HttpStatus.OK);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Customer> deleteCustomer(@PathVariable int id) {
+        Customer customer = customerService.findById(id);
+        if (customer == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        customerService.deleteCustomer(id);
+        return new ResponseEntity<>(customer, HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/list-province")
-    public ResponseEntity<List<Province>> getProvinceList(){
-        List<Province> list = provinceService.findAll();
-        if(list.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(list,HttpStatus.OK);
-    }
 }

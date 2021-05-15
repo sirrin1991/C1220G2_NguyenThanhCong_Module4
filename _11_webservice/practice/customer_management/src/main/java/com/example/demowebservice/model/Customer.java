@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 @Entity
 @Table(name="customer")
 public class Customer {
@@ -19,19 +16,16 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "province_id",referencedColumnName = "province_id",nullable = false)
-    private Province province;
 
     public Customer() {
     }
 
-    public Customer(int id, String firstName, String lastName, Province province) {
+    public Customer(int id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.province = province;
     }
+
 
     public int getId() {
         return id;
@@ -57,11 +51,4 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public Province getProvince() {
-        return province;
-    }
-
-    public void setProvince(Province province) {
-        this.province = province;
-    }
 }

@@ -62,7 +62,7 @@ public class ProductController {
     public String deleteProductInCart(@PathVariable Integer id,Cart cart,Model model){
         Product product = productService.findById(id);
         cart.removeProduct(product);
-        model.addAttribute("cárts",cart.getCart());
+        model.addAttribute("carts",cart.getCart());
         return "redirect:/product/cart-info";
     }
 
