@@ -1,11 +1,14 @@
-package com.example.exercise.service;
+package com.example.exercise.service.impl;
 
 import com.example.exercise.entity.Product;
 import com.example.exercise.repository.ProductRepository;
+import com.example.exercise.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 @Service
@@ -36,5 +39,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Page<Product> findAllByCategoryName(String name, Pageable pageable) {
         return productRepository.findAllByCategory_Name(name,pageable);
+    }
+
+    @Override
+    public List<Product> getProductList() {
+        return productRepository.findAll();
     }
 }

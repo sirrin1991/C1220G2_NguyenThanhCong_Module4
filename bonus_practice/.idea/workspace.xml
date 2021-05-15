@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a7be8902-231a-4ea9-8bcf-7e0e8285e116" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/entity/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m4/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m4/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/resources/templates/layout.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1sUKyHOulzN03Jk4MKZHjJ39aRG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/m4" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a7be8902-231a-4ea9-8bcf-7e0e8285e116" name="Default Changelist" comment="" />
+      <created>1620921980061</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620921980061</updated>
+      <workItem from="1620921981404" duration="14000" />
+      <workItem from="1621053297232" duration="15000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1621053310809">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1621053310809" />
+  </component>
+</project>

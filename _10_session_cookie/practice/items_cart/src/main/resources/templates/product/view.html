@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{layout::head}"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:insert="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3 style="text-align: center">Product Information</h3>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-4">
+            <button class="btn btn-primary ml-1">
+                <a th:href="@{/}" class="text-white">Back to product's list</a>
+            </button>
+        </div>
+        <div class="col-8">
+            <th:block th:if="${msg}">
+                <p th:text="${msg}" style="color: blue"></p>
+            </th:block>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-12">
+            <table class="table table-striped" th:object="${product}" >
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Add to cart</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${product.id}" hidden></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.description}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td>
+                        <form th:action="@{/product/{id}/view(id=${product.id})}" method="post">
+                            <input type="submit" value="Add"/>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+        <div class="col-4">
+            <button class="btn btn-primary ml-1">
+                <a th:href="@{/product/cart-info}" class="text-white">Go to cart</a>
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

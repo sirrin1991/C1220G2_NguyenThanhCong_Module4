@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout::head}"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12" th:insert="~{layout::menu}"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <th:block th:if="${msg}">
+                        <h4 th:text="${msg}"></h4>
+                    </th:block>
+                </div>
+            </div>
+            <div class="row col-12">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Product's name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="c : ${carts}">
+                        <td th:text="${c.key.name}"></td>
+                        <td th:text="${c.key.price}"></td>
+                        <td th:text="${c.value}"></td>
+                        <td>
+                            <a th:href="@{/product/{id}/edit(id=${c.key.id})}" >Edit quantity</a>
+                            <a th:href="@{/product/{id}/delete(id=${c.key.id})}" >Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h3>Total : <span th:text="${totalCost}" style="color: red"></span></h3></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

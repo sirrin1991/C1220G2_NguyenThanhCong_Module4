@@ -1,8 +1,9 @@
-package com.example.exercise.service;
+package com.example.exercise.service.impl;
 
 import com.example.exercise.entity.Category;
 
 import com.example.exercise.repository.CategoryRepository;
+import com.example.exercise.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
