@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<button>
+    <a th:href="@{/create}">Create new phone</a>
+</button>
+
+
+<h1>Smartphone List</h1>
+<table id="smartphoneList">
+    <tr>
+        <td>Producer</td>
+        <td>Model</td>
+        <td>Price</td>
+        <td>Action</td>
+    </tr>
+    <th:block th:each="phone: ${phones}">
+        <tr>
+            <td th:text="${phone.producer}"></td>
+            <td th:text="${phone.model}"></td>
+            <td th:text="${phone.price}"></td>
+            <td>
+                <a class="deleteSmartphone" th:href="${phone.id}">Delete</a>
+                <a class="edit" th:href="${phone.id}">Edit</a>
+            </td>
+        </tr>
+    </th:block>
+</table>
+</body>
+<script>
+
+    $(document).ready(function (event) {
+        $('.deleteSmartphone').click(function (event) {
+            let temp = $(this);
+            let phoneId = temp.attr("href");
+            $.ajax({
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                type: "POST",
+                url: `/delete/${phoneId}`,
+                success: function (data) {
+                    temp.parent().parent().remove();
+                }
+            })
+            event.preventDefault();
+        })
+    })
+
+</script>
+</html>

@@ -1,8 +1,8 @@
 package com.example.blog.controller;
 
 
-import com.example.blog.dto.BlogDto;
-import com.example.blog.dto.CategoryDto;
+import com.example.blog.entity.dto.BlogDto;
+import com.example.blog.entity.dto.CategoryDto;
 import com.example.blog.entity.Blog;
 import com.example.blog.entity.Category;
 import com.example.blog.service.BlogService;

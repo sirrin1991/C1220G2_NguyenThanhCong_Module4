@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{homepage::head}"></head>
+<body>
+<div class="container">
+    <div th:insert="~{homepage::menu}"></div>
+    <div class="row mt-3">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <button class="btn btn-primary ml-1">
+                <a th:href="@{/}" class="text-white">Back to blog's list</a>
+            </button>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div th:if="${msg}">
+                <h3 style="color: red" th:text="${msg}"></h3>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row">
+                <div class="col-12" style="background-color: #e3dcff">
+                    <h3>Write new blog</h3>
+                </div>
+            </div>
+            <div class="row">
+                <form th:action="@{/blog/create-blog}" th:object="${blog}" method="post">
+                    <div class="form-group">
+                        <label for="firstName">Title : </label>
+                        <input type="text"  th:field="*{name}"
+                               id="firstName" placeholder="Blog's title">
+                        <label for="selectCategory">Category : </label>
+                        <select id="selectCategory" th:field="*{category}">
+                            <option th:each="p : ${categories}" th:value="${p.id}"
+                                    th:text="${p.name}"></option>
+                        </select>
+                        <label for="date">Date : </label>
+                        <input type="date" th:field="*{postDate}"
+                               id="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Content :</label>
+                        <textarea rows="4" cols="60" class="form-control" id="content" th:field="*{content}"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+<footer th:fragment="footer">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</footer>
+</body>
+</html>

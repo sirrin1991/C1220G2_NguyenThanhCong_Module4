@@ -1,4 +1,4 @@
-package com.example.blog.dto;
+package com.example.blog.entity.dto;
 
 public class CategoryDto {
     private Integer id;

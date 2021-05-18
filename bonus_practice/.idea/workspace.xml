@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7be8902-231a-4ea9-8bcf-7e0e8285e116" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/entity/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/java/com/example/exercise/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/m4/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/m4/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/m4/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_11_webservice/exercise/blog/src/main/java/com/example/blog/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_11_webservice/exercise/blog/src/main/java/com/example/blog/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_11_webservice/exercise/blog/src/main/java/com/example/blog/dto/BlogDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_11_webservice/exercise/blog/src/main/java/com/example/blog/entity/dto/BlogDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_11_webservice/exercise/blog/src/main/java/com/example/blog/dto/CategoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_11_webservice/exercise/blog/src/main/java/com/example/blog/entity/dto/CategoryDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +36,7 @@
       <updated>1620921980061</updated>
       <workItem from="1620921981404" duration="14000" />
       <workItem from="1621053297232" duration="15000" />
+      <workItem from="1621155416976" duration="26000" />
     </task>
     <servers />
   </component>
@@ -48,9 +44,9 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1621053310809">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1621155441797">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1621053310809" />
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1621155441797" />
   </component>
 </project>

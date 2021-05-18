@@ -1,19 +1,35 @@
-package com.example.blog.dto;
+package com.example.blog.entity;
 
-public class BlogDto {
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "blog")
+public class Blog {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
+    @Column(columnDefinition = "date")
     private String postDate;
     private String content;
 
-    public BlogDto() {
+    @ManyToOne
+    @JoinColumn(name = "category_id",nullable = false,referencedColumnName = "category_id")
+    private Category category;
+
+    public Blog() {
     }
 
-    public BlogDto(Integer id, String name, String postDate, String content) {
+    public Blog(Integer id, String name, String postDate, String content, Category category) {
         this.id = id;
         this.name = name;
         this.postDate = postDate;
         this.content = content;
+        this.category = category;
     }
 
     public Integer getId() {
@@ -46,5 +62,13 @@ public class BlogDto {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
