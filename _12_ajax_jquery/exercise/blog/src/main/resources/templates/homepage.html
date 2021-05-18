@@ -99,6 +99,7 @@
                         </tr>
                         </tbody>
                     </table>
+                    <button type="button" id="more">Xem thêm</button>
                 </div>
             </div>
         </div>
@@ -135,5 +136,18 @@
         });
     });
 
+    $(document).ready(function () {
+        $("#more").click(function (event) {
+            $.ajax({
+                type: "GET",
+                url: "/more-blog",
+                dataType: "HTML",
+                success: function (data) {
+                    $("#blogList").html(data)
+                }
+            })
+            event.preventDefault();
+        })
+    })
 </script>
 </html>
