@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3 th:text="#{header_view}"></h3>
+<p>
+    <a th:href="@{/}" th:text="#{func_list}"></a>
+</p>
+<div id="detail">
+    <div class="cusdetail">
+        <label th:text="#{customer_name_label}"></label>
+        <label th:text="${customer.name}"></label>
+    </div>
+    <div class="cusdetail">
+        <label th:text="#{customer_email_label}"></label>
+        <label th:text="${customer.email}"></label>
+    </div>
+    <div class="cusdetail">
+        <label th:text="#{customer_address_label}"></label>
+        <label th:text="${customer.address}"></label>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

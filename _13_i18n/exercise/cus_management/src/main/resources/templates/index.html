@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3 th:text="#{header_list}"></h3>
+<a href="?lang=en" th:text="#{lang_en}"></a> | <a href="?lang=vi" th:text="#{lang_vi}"></a>
+<div class="notify" style="float: right">
+    <div th:if="${success}">
+        <span th:text="#{remove_success}"></span>
+    </div>
+</div>
+<p>
+    <a th:href="@{/create}" th:text="#{func_add}"></a>
+</p>
+<table id="customers">
+    <thead>
+    <tr>
+        <th th:text="#{customer_name_label}"></th>
+        <th th:text="#{customer_email_label}"></th>
+        <th th:text="#{customer_address_label}"></th>
+        <th th:text="#{func_edit}"></th>
+        <th th:text="#{func_delete}"></th>
+        <th th:text="#{func_view}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${customers}">
+        <td th:text="${row.name}"></td>
+        <td th:text="${row.email}"></td>
+        <td th:text="${row.address}"></td>
+        <td><a th:href="@{/{id}/edit(id=${row.id})}" th:text="#{func_edit}"></a></td>
+        <td><a th:href="@{/{id}/delete(id=${row.id})}" th:text="#{func_delete}"></a></td>
+        <td><a th:href="@{/{id}/view(id=${row.id})}" th:text="#{func_view}"></a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

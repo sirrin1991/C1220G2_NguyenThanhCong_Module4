@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3 th:text="#{header_edit}"></h3>
+<p>
+    <a th:href="@{/}" th:text="#{func_list}"></a>
+</p>
+<div id="form">
+    <form th:action="@{/update}" th:object="${customer}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label th:text="#{customer_name_label}"></label>
+            <input type="text" th:field="*{name}"/>
+        </div>
+        <div>
+            <label th:text="#{customer_email_label}"></label>
+            <input type="email" th:field="*{email}"/>
+        </div>
+        <div>
+            <label th:text="#{customer_address_label}"></label>
+            <input type="text" th:field="*{address}"/>
+        </div>
+        <input type="submit" th:value="#{btn_modify}"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
