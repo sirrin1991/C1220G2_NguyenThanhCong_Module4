@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class PhoneController {
@@ -43,5 +44,10 @@ public class PhoneController {
         return new ModelAndView("/edit","phone",phoneService.findById(id));
     }
 
+    @PostMapping("/edit")
+    public String editPhone(Phone phone, RedirectAttributes redirectAttributes){
+        phoneService.save(phone);
+        return "redirect:";
+    }
 
 }

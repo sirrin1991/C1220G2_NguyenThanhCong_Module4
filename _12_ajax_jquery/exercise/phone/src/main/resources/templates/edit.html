@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List Smartphone</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="resultFromResponse"></div>
+
+<fieldset>
+    <legend>Edit phone</legend>
+    <form th:action="@{/edit}" method="post" th:object="${phone}">
+        <table>
+            <tr>
+                <td><input th:field="*{id}" hidden></td>
+            </tr>
+            <tr>
+                <td>Producer :</td>
+                <td><input type="text" th:field="*{producer}"  placeholder="producer"></td>
+            </tr>
+            <tr>
+                <td>Model :</td>
+                <td><input type="text" th:field="*{model}" placeholder="model"></td>
+            </tr>
+            <tr>
+                <td>Price :</td>
+                <td><input type="number"  th:field="*{price}" placeholder="price"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="btn btn-primary" type="submit" value="submit">
+                    <button class="btn btn-primary text-white ">
+                        <a th:href="@{/}">Cancel</a>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+</body>
+</html>

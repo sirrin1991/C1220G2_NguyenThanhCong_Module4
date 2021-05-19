@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List Smartphone</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
+<div>
+    <button>
+        <a th:href="@{/}">Back to list</a>
+    </button>
+</div>
+<div id="resultFromResponse"></div>
 
+<fieldset>
+    <legend>Edit phone</legend>
+    <form id="add-smartphone">
+        <table>
+            <tr>
+                <td>Producer :</td>
+                <td><input type="text" id="producer"  placeholder="producer"></td>
+            </tr>
+            <tr>
+                <td>Model :</td>
+                <td><input type="text" id="model" placeholder="model"></td>
+            </tr>
+            <tr>
+                <td>Price :</td>
+                <td><input type="text"  id="price" placeholder="price"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="submit"></td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
 </body>
 </html>

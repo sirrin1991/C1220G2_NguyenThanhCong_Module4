@@ -1,11 +1,14 @@
 package com.example.blog.entity.dto;
 
+import com.example.blog.entity.Category;
+
+import java.util.Set;
+
 public class BlogDto {
     private Integer id;
     private String name;
     private String postDate;
     private String content;
-
     public BlogDto() {
     }
 

@@ -17,6 +17,6 @@ public interface BlogRepository extends JpaRepository<Blog, Integer> {
     List<Blog> findBlogByNameContaining(String name);
 
 
-    @Query( value = "call get_blog(:quantity)", nativeQuery = true)
-    List<Blog> getBlogList(@Param("quantity") Integer quantity);
+    @Query(value="select * from blog limit ?1",nativeQuery=true)
+    List<Blog> getBlogList(Integer quantity);
 }

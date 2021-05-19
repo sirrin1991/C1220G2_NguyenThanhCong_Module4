@@ -53,5 +53,21 @@
         })
     })
 
+    $(document).ready(function (event) {
+        $('.edit').click(function (event) {
+            let temp = $(this);
+            let phoneId = temp.attr("href");
+            $.ajax({
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                type: "GET",
+                url: `/edit/${phoneId}`,
+            })
+            event.preventDefault();
+        })
+    })
+
 </script>
 </html>

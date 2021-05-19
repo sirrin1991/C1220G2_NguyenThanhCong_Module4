@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List Smartphone</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <button>
+        <a th:href="@{/}">Back to list</a>
+    </button>
+</div>
+<div id="resultFromResponse"></div>
+
+    <fieldset>
+        <legend>Create new phone</legend>
+        <form id="add-smartphone">
+        <table>
+            <tr>
+                <td>Producer :</td>
+                <td><input type="text" id="producer"  placeholder="producer"></td>
+            </tr>
+            <tr>
+                <td>Model :</td>
+                <td><input type="text" id="model" placeholder="model"></td>
+            </tr>
+            <tr>
+                <td>Price :</td>
+                <td><input type="text"  id="price" placeholder="price"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="submit"></td>
+            </tr>
+        </table>
+        </form>
+    </fieldset>
+
+</body>
+<script>
+    $(document).ready( function () {
+        $('#add-smartphone').submit(function (event) {
+            var producer =$('#producer').val();
+            var model =$('#model').val();
+            var price =$('#price').val();
+            var json = {"producer": producer,"model": model,"price": price};
+            $.ajax({
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                type : "POST",
+                data : JSON.stringify(json),
+                url : "/create",
+                success: function (phone) {
+                    var responseContent ="";
+                    responseContent += "<span class = 'success'>Phone was create : [ ";
+                    responseContent += phone.producer +": ";
+                    responseContent += phone.model + ": ";
+                    responseContent += phone.price + "] </span>";
+                    $('#resultFromResponse').html(responseContent)
+                }
+            })
+            event.preventDefault();
+        })
+    })
+</script>
+</html>
