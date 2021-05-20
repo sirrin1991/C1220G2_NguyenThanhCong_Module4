@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{homepage::head}"></head>
+<body>
+    <div class="container">
+        <div th:insert="~{homepage::menu}"></div>
+        <div class="row mt-3">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <button class="btn btn-primary ml-1">
+                    <a th:href="@{/category/create}" class="text-white">Create new category</a>
+                </button>
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div th:if="${msg}">
+                    <h3 style="color: red" th:text="${msg}"></h3>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Category's name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="category : ${categories}">
+                        <td th:text="${category.name}"></td>
+                        <td>
+                            <a th:href="@{/category/{id}/edit(id=${category.id})}">Edit |</a>
+                            <a th:href="@{/category/{id}/delete(id=${category.id})}">Delete |</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+
+<footer th:insert="~{homepage::footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+<head th:insert="~{layout::head}"></head>
+<body>
+<!--header-->
+<div class="header-w3l">
+    <h1>Glassy Login Form</h1>
+</div>
+<!--//header-->
+<!--main-->
+<div class="main-w3layouts-agileinfo">
+    <!--form-stars-here-->
+    <div class="wthree-form">
+        <h2>Fill out the form below to login</h2>
+        <form th:action="@{/login}" method="post">
+            <p th:if="${param.error}"  style="text-align: center;color: red">Đăng nhập thất bại</p>
+            <div class="form-sub-w3">
+                <input type="text" name="email" placeholder="Username "/>
+                <div class="icon-w3">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="form-sub-w3">
+                <input type="password" name="password" placeholder="Password"/>
+                <div class="icon-w3">
+                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                </div>
+            </div>
+            <label class="anim">
+                <input type="checkbox" class="checkbox">
+                <span>Remember Me</span>
+                <a href="#">Forgot Password</a>
+            </label>
+            <div class="clear"></div>
+            <div class="submit-agileits">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+
+    </div>
+    <!--//form-ends-here-->
+
+</div>
+<!--//main-->
+<!--footer-->
+<div th:insert="~{layout::footer}"></div>
+<!--//footer-->
+</body>
+</html>

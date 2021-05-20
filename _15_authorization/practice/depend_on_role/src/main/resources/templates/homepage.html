@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:insert="~{layout::head}"></head>
+<body>
+<div class="header-w3l" sec:authorize="!isAuthenticated()">
+    <h1>WELCOME</h1>
+    <div class="main-w3layouts-agileinfo">
+        <!--form-stars-here-->
+        <div class="wthree-form">
+            <form th:action="@{/login}" method="get">
+                <div class="clear"></div>
+                <div class="submit-agileits">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+        <div class="wthree-form">
+            <form th:action="@{/register}" method="get">
+                <div class="clear"></div>
+                <div class="submit-agileits">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+        <!--//form-ends-here-->
+
+    </div>
+</div>
+<div class="header-w3l" sec:authorize="isAuthenticated()">
+    <h1>WELCOME  <span sec:authentication="name">Username</span> </h1>
+    <div class="submit-agileits">
+        <button type="submit"><a th:href="@{/logout}">Log out</a></button>
+    </div>
+</div>
+
+<div th:insert="~{layout::footer}"></div>
+</body>
+</html>

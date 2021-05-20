@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout::head}"></head>
+<body>
+<div class="main-w3layouts-agileinfo">
+    <!--form-stars-here-->
+    <div class="wthree-form">
+        <h2>Fill out the form below to register</h2>
+        <form th:action="@{/register}" method="post" th:object="${registerUser}">
+            <div class="form-sub-w3">
+                <input type="text" th:field="*{email}" name="email" placeholder="Username "/>
+                <div class="icon-w3">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </div>
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red"></p>
+            </div>
+            <div class="form-sub-w3">
+                <input type="password" th:field="*{password}" name="password" placeholder="Password"/>
+                <div class="icon-w3">
+                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                </div>
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red"></p>
+            </div>
+            <div class="form-sub-w3">
+                <input type="password" th:field="*{matchingPassword}" name="password" placeholder="Confirm password"/>
+                <div class="icon-w3">
+                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                </div>
+                <p th:if="${#fields.hasErrors('matchingPassword')}" th:errors="*{matchingPassword}" style="color: red"></p>
+            </div>
+            <div class="clear"></div>
+            <div class="submit-agileits">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+
+    </div>
+    <!--//form-ends-here-->
+
+</div>
+
+<div th:insert="~{layout::footer}"></div>
+</body>
+</html>
