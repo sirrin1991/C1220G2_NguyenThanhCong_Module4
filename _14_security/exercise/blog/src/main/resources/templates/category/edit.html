@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{homepage::head}"></head>
+<body>
+    <div class="container">
+        <div th:insert="~{homepage::menu}"></div>
+        <div class="row mt-3">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <button class="btn btn-primary ml-1">
+                    <a th:href="@{/category}" class="text-white">Back to category's list</a>
+                </button>
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12" style="background-color: #e3dcff">
+                        <h3>Edit category</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <form th:action="@{/category/delete-category}" th:object="${category}" method="post">
+                        <label>
+                            <input th:field="*{id}" hidden>
+                        </label>
+                        <div class="form-group">
+                            <label for="firstName">Category's name</label>
+                            <input type="text" class="form-control" th:field="*{name}"
+                                   id="firstName" placeholder="Input customer's first name">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+    </div>
+
+
+<footer th:insert="~{homepage::footer}"></footer>
+</body>
+</html>
