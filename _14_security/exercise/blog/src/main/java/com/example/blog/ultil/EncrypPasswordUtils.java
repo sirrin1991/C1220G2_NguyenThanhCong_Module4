@@ -10,8 +10,6 @@ public class EncrypPasswordUtils {
         return encoder.encode(password);
     }
 
-
-
     public static Boolean ParseEncryp(String password, String currentPassword){
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder.matches(currentPassword,password);
