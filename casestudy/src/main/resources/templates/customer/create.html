@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: header }"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:replace="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row mt-5"></div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <button class="btn btn-primary">
+                <a th:href="@{/customer}" style="color: white">Back to customer's list</a>
+            </button>
+            <th:block th:if="${msg}">
+                <h3 style="color: blue" th:text="${msg}"></h3>
+            </th:block>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="row">
+                <h3 style="text-align: center">Create new customer</h3>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <form th:action="@{/customer/save}" th:object="${customer}" method="post">
+                        <div class="form-group">
+                            <label for="code">Code :</label>
+                            <input type="text" class="form-control" id="code" th:field="*{code}" >
+                        </div>
+                        <div class="form-group">
+                            <label for="pn">Name :</label>
+                            <input type="text" class="form-control" id="pn" th:field="*{name}" >
+                        </div>
+                        <div class="form-group">
+                            <label for="bd">Birth day :</label>
+                            <input type="date" class="form-control" id="bd" th:field="*{birthday}">
+                        </div>
+                        <div class="form-group">
+                            <span>Please select your gender:</span>
+                            <select id="selectCategory" th:field="*{gender}">
+                                <option th:value="true" th:text="Female"></option>
+                                <option th:value="false" th:text="Male"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ic">Id Card :</label>
+                            <input type="text" class="form-control" id="ic" th:field="*{idCard}">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone :</label>
+                            <input type="text" class="form-control" id="phone" th:field="*{phone}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email :</label>
+                            <input type="text" class="form-control" id="email" th:field="*{email}">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address :</label>
+                            <input type="text" class="form-control" id="address" th:field="*{address}">
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Customer's type : </label>
+                            <select id="type" th:field="*{customerType}">
+                                <option th:each="p : ${customerTypes}" th:value="${p.id}"
+                                        th:text="${p.name}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary ml-1" type="submit">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div th:insert="~{layout :: bootstrap}"></div>
+</body>
+</html>

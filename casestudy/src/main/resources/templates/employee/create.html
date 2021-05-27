@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: header }"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:replace="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row mt-5"></div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <button class="btn btn-primary">
+                <a th:href="@{/employee}" style="color: white">Back to employee's list</a>
+            </button>
+            <th:block th:if="${msg}">
+                <h3 style="color: blue" th:text="${msg}"></h3>
+            </th:block>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="row">
+                <h3 style="text-align: center">Create new employee</h3>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <form th:action="@{/employee/save}" th:object="${employee}" method="post">
+                        <div class="form-group">
+                            <label for="pn">Name :</label>
+                            <input type="text" class="form-control" id="pn" th:field="*{name}" >
+                            <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="datepicker">Birth day :</label>
+                            <input   id="datepicker" class="form-control"  th:field="*{birthday}">
+                            <p style="color: red" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="ic">Id Card :</label>
+                            <input type="text" class="form-control" id="ic" th:field="*{idCard}">
+                            <p style="color: red" th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="salary">Salary :</label>
+                            <input type="text" class="form-control" id="salary" th:field="*{salary}">
+                            <p style="color: red" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone :</label>
+                            <input type="text" class="form-control" id="phone" th:field="*{phone}">
+                            <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email :</label>
+                            <input type="text" class="form-control" id="email" th:field="*{email}">
+                            <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address :</label>
+                            <input type="text" class="form-control" id="address" th:field="*{address}">
+                            <p style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="division">Division : </label>
+                            <select id="division" th:field="*{division}">
+                                <option th:each="d : ${divisions}" th:value="${d.id}"
+                                        th:text="${d.name}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="educationDegree">Education Degree : </label>
+                            <select id="educationDegree" th:field="*{educationDegree}">
+                                <option th:each="e : ${educationDegrees}" th:value="${e.id}"
+                                        th:text="${e.name}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position : </label>
+                            <select id="position" th:field="*{position}">
+                                <option th:each="p : ${positions}" th:value="${p.id}"
+                                        th:text="${p.positionName}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary ml-1" type="submit">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div th:insert="~{layout :: bootstrap}"></div>
+</body>
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            dateFormat: 'dd-mm-yy',
+            changeYear: true,
+            changeMonth: true,
+            yearRange: "-80:-18",
+            minDate: "-80Y", maxDate: "-18Y"
+        });
+    });
+</script>
+
+</html>

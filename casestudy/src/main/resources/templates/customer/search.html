@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: header }"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:replace="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row mt-5"></div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Code</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Birthday</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">ID Card</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="c : ${customers}">
+                            <td th:text="${c.code}"></td>
+                            <td th:text="${c.name}"></td>
+                            <td th:text="${c.birthday}"></td>
+                            <th:block th:if="${c.gender}==true">
+                                <td th:text="Female"></td>
+                            </th:block>
+                            <th:block th:if="${c.gender}==false">
+                                <td th:text="Male"></td>
+                            </th:block>
+                            <td th:text="${c.idCard}"></td>
+                            <td th:text="${c.phone}"></td>
+                            <td th:text="${c.email}"></td>
+                            <td th:text="${c.address}"></td>
+                            <td th:text="${c.customerType.name}"></td>
+                            <td>
+                                <button type="button" class="btn btn-warning">
+                                    <a th:href="@{/customer/{id}/edit(id=${c.id})}">Edit |</a>
+                                </button>
+                                <button type="button" class="delete btn btn-danger" th:value="${c.id}">Delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Customer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div th:insert="~{layout :: bootstrap}"></div>
+</body>
+<script>
+
+    $(document).ready(function () {
+        $('.delete').click(function (event) {
+            var id = $(".delete").val();
+            $.ajax({
+                type: "GET",
+                url: `/customer/delete/${id}`,
+                dataType: "HTML",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                    $("#exampleModal").modal("show");
+                }
+            })
+            event.preventDefault();
+        });
+    });
+</script>
+</html>

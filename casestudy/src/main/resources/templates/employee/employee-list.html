@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: header }"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:replace="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row mt-5"></div>
+    <div class="row mt-5">
+        <div class="col-5">
+            <button class="btn btn-primary">
+                <a th:href="@{/employee/create}" style="color: white">Create new Employee</a>
+            </button>
+        </div>
+        <div class="col-7">
+            <th:block th:if="${msg}">
+                <h3 style="color: blue" th:text="${msg}"></h3>
+            </th:block>
+        </div>
+    </div>
+    <div class="row mt-3 ml-2">
+        <form th:action="@{/employee/search}" method="get">
+            <label>
+                <input type="text" name="searchName" placeholder="Name">
+            </label>
+            <label>
+                <input type="text" name="searchPhone" placeholder="Phone">
+            </label>
+            <label>
+                <input type="text" name="searchAddress" placeholder="Address">
+            </label>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">ID Card</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="c : ${employees}">
+                            <td th:text="${c.name}"></td>
+                            <td th:text="${c.idCard}"></td>
+                            <td th:text="${c.phone}"></td>
+                            <td th:text="${c.email}"></td>
+                            <td>
+                                <button type="button" class="btn btn-warning">
+                                    <a th:href="@{/employee/{id}/edit(id=${c.id})}">Edit</a>
+                                </button>
+                            </td>
+                            <td><button type="button" class="delete btn btn-danger" th:data-id="${c.id}">Delete</button></td>
+                            <td><button type="button" class="view btn btn-warning" th:value="${c.id}">View</button></td>
+
+
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row ml-2">
+                <a th:href="@{'/customer'(page=${employees.number - 1})}" th:if="${employees.hasPrevious()}"> Previous </a>
+                <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
+                <a th:href="@{'/customer'(page=${employees.number + 1})}" th:if="${employees.hasNext()}"> Next </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{layout :: bootstrap}"></div>
+</body>
+<script>
+
+    $(document).ready(function () {
+        $('.delete').click(function (event) {
+
+            var id = $(this).data("id");
+            $.ajax({
+                type: "GET",
+                url: `/employee/delete/${id}`,
+                dataType: "HTML",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                    $("#exampleModal").modal("show");
+                }
+            })
+            event.preventDefault();
+        });
+    });
+    $(document).ready(function () {
+        $('.view').click(function (event) {
+            var id = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: `/employee/view/${id}`,
+                dataType: "HTML",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                    $("#exampleModal").modal("show");
+                }
+            })
+            event.preventDefault();
+        });
+    });
+</script>
+</html>

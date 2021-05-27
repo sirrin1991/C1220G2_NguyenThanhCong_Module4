@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: header }"></head>
+<body>
+
+<table class="table table-striped" th:object="${employee}">
+    <tr>
+        <td>Name</td>
+        <td th:text="${employee.name}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${employee.idCard}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${employee.phone}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${employee.email}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${employee.birthday}"></td>
+    </tr>
+    <tr>
+        <td >Name</td>
+        <td th:text="${employee.salary}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${employee.address}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${employee.division.name}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${employee.educationDegree.name}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${employee.position.positionName}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${employee.user.email}"></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: right">
+            <button class="btn btn-primary">
+                <a th:href="@{/employee}" style="color: white">Done</a>
+            </button>
+        </td>
+    </tr>
+</table>
+
+
+<div th:insert="~{layout :: bootstrap}"></div>
+</body>
+</html>

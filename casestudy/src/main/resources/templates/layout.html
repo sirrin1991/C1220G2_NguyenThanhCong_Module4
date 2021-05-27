@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:fragment="header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        body {
+            background-image: url("/BG2.jpg");
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-attachment: fixed;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <div class="row">
+        <div class="col-12">
+            <div th:fragment="menu" class="fixed-top">
+                <div class="row bg-white">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <nav class="navbar navbar-expand-lg navbar-light text-white">
+                            <a class="navbar-brand" th:href="@{/}"><img src="/FURAMA.png" width="40px"/></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item active mr-2" sec:authorize="hasRole('ADMIN')" >
+                                        <a class="nav-link" th:href="@{/employee}">Employee <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item active mr-2" sec:authorize="hasRole('MEMBER')">
+                                        <a class="nav-link" th:href="@{/customer}">Customer <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item active mr-2 disabled">
+                                        <a  class="nav-link" href="#">Serivce <span
+                                                class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item active disabled">
+                                        <a class="nav-link" href="#">Contract <span class="sr-only">(current)</span></a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-3">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active " sec:authorize="!isAuthenticated()">
+                                <a class="nav-link" th:href="@{/login}">Sign In<span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active " sec:authorize="isAuthenticated()">
+                                <span style="color: black" sec:authentication="name">Username</span>
+                                <a th:href="@{/logout}" style="color: blue">Log out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="footer">
+    <footer>
+        <div class="container-fluid text-center" style="background-color: #cfffe2">
+            <div class="row">
+                <div class="col-4">
+                    <div class="row ml-2" style="background-color: #f7fff6">
+                        <div class="col-12">
+                            <h2 style="color: #d39e00">Hướng dẫn di chuyển</h2>
+                            <p style="text-align: left">Khu nghỉ dưỡng Furama là cơ sở hàng đầu để khám phá một trong
+                                những điểm đến hấp dẫn nhất Châu Á. Chỉ cách Đà Nẵng một quãng lái xe ngắn là bốn Di sản
+                                Văn hóa Thế giới được UNESCO công nhận:</p>
+                            <h4 style="color: #ffec6a;">Địa Điểm :</h4>
+                            <ol>
+                                <li>Cố đô huế</li>
+                                <li>Phố cổ Hội An</li>
+                                <li>Thánh địa Mỹ sơn</li>
+                                <li>Động Phong Nha</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-8">
+                            <div class="row mt-5">
+                                <ul>
+                                    <li>Giá công bố</li>
+                                    <br>
+                                    <li>Lifestyle Blog</li>
+                                    <br>
+                                    <li>Tuyển Dụng</li>
+                                    <br>
+                                    <li>Liên Hệ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <h4 style="color: sandybrown;text-align: left">Liên hệ</h4>
+                            <p style="text-align: left">103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son
+                                District, Danang City, Vietnam
+                                Tel.: 84-236-3847 333/888 * Fax: 84-236-3847 666
+                                Email: reservation@furamavietnam.com * www.furamavietnam.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
+</div>
+<div th:fragment="bootstrap">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
