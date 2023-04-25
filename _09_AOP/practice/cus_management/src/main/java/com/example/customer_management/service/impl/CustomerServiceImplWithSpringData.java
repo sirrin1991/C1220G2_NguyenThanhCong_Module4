@@ -20,12 +20,12 @@ public class CustomerServiceImplWithSpringData implements CustomerService {
     private CustomerRepository customerRepository;
 
     @Override
-    public List<Customer> findAll()   {
+    public List<Customer> findAll() {
         return streamAll().collect(Collectors.toList());
     }
 
     @Override
-    public Page<Customer> findAll(Pageable pageInfo)  throws Exception {
+    public Page<Customer> findAll(Pageable pageInfo) throws Exception {
         if (true) throw new Exception("a dummy exception");
         return customerRepository.findAll(pageInfo);
     }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: header }"></head>
+<body>
+
+<h3 style="color: green">Service Information</h3>
+<table class="table table-striped" th:object="${service}">
+    <tr>
+        <td>Code :</td>
+        <td th:text="${service.code}"></td>
+    </tr>
+    <tr>
+        <td>Name :</td>
+        <td th:text="${service.name}"></td>
+    </tr>
+    <tr>
+        <td>Type :</td>
+        <td th:text="${service.serviceType.name}"></td>
+    </tr>
+    <tr>
+        <td>Rent type :</td>
+        <td th:text="${service.rentType.name}"></td>
+    </tr>
+    <tr>
+        <td>Area :</td>
+        <td th:text="${service.area}"></td>
+    </tr>
+    <tr>
+        <td>Pool area :</td>
+        <td th:text="${service.poolArea}"></td>
+    </tr>
+    <tr>
+        <td>Max of quantity :</td>
+        <td th:text="${service.maxOfPeople}"></td>
+    </tr>
+    <tr>
+        <td>Standard :</td>
+        <td th:text="${service.standard}"></td>
+    </tr>
+    <tr>
+        <td>Number of floor :</td>
+        <td th:text="${service.numberOfFloor}"></td>
+    </tr>
+    <tr>
+        <td>Description other convenience :</td>
+        <td th:text="${service.descriptionOtherConvenience}"></td>
+    </tr>
+    <tr>
+        <td>Cost :</td>
+        <td th:text="${service.cost}"></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: right">
+            <button class="btn btn-primary">
+                <a th:href="@{/service}" style="color: white">Done</a>
+            </button>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: header }"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:replace="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row mt-5"></div>
+    <div class="row mt-5">
+        <div class="col-5">
+            <button class="btn btn-primary">
+                <a th:href="@{/service/create}" style="color: white">Create new service</a>
+            </button>
+        </div>
+        <div class="col-7">
+            <th:block th:if="${msg}">
+                <h3 style="color: blue" th:text="${msg}"></h3>
+            </th:block>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Code</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Area</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Cost</th>
+                            <th scope="col" colspan="3">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="c : ${services}">
+                            <td th:text="${c.code}"></td>
+                            <td th:text="${c.name}"></td>
+                            <td th:text="${c.serviceType.name}"></td>
+                            <td th:text="${c.area}"></td>
+                            <th:block th:if="${c.status}==true">
+                                <td th:text="Available"></td>
+                            </th:block>
+                            <th:block th:if="${c.status}==false">
+                                <td th:text="Not-available"></td>
+                            </th:block>
+                            <td th:text="${c.cost}"></td>
+                            <td>
+                                <button type="button" class="btn btn-warning">
+                                    <a th:href="@{/service/{id}/edit(id=${c.id})}">Edit</a>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" class="delete btn btn-danger" th:data-id="${c.id}">Delete</button>
+                            </td>
+                            <td>
+                                <button type="button" class="view btn btn-warning" th:data-view="${c.id}">View</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{layout :: bootstrap}"></div>
+</body>
+<script>
+
+    $(document).ready(function () {
+        $('.delete').click(function (event) {
+
+            var id = $(this).data("id");
+            $.ajax({
+                type: "GET",
+                url: `/service/delete/${id}`,
+                dataType: "HTML",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                    $("#exampleModal").modal("show");
+                }
+            })
+            event.preventDefault();
+        });
+    });
+    $(document).ready(function () {
+        $('.view').click(function (event) {
+            var id = $(this).data("view");
+            $.ajax({
+                type: "GET",
+                url: `/service/view/${id}`,
+                dataType: "HTML",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                    $("#exampleModal").modal("show");
+                }
+            })
+            event.preventDefault();
+        });
+    });
+</script>
+</html>

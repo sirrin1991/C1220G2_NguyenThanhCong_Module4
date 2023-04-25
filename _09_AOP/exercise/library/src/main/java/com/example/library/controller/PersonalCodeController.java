@@ -23,27 +23,27 @@ public class PersonalCodeController {
     PersonalCodeService personalCodeService;
 
     @GetMapping("/borrow")
-    public ModelAndView showListBook(){
-        return new ModelAndView("borrow","books",bookService.findAll());
+    public ModelAndView showListBook() {
+        return new ModelAndView("borrow", "books", bookService.findAll());
     }
 
     @GetMapping("/return")
-    public ModelAndView showReturn(){
-        return new ModelAndView("return","personalCode",new PersonalCode());
+    public ModelAndView showReturn() {
+        return new ModelAndView("return", "personalCode", new PersonalCode());
     }
 
     @GetMapping("/borrow/{id}/borrow")
     public String borrowBook(@PathVariable Integer id, Model model) throws QuantityException {
         Book book = bookService.findById(id);
         Integer oldQuantity = book.getQuantity();
-        if(oldQuantity == 0){
+        if (oldQuantity == 0) {
             throw new QuantityException();
         }
-        book.setQuantity(oldQuantity-1);
+        book.setQuantity(oldQuantity - 1);
         bookService.save(book);
         int code = (int) Math.floor(((Math.random() * 89999) + 10000));
         String codeOfPerson = String.valueOf(code);
-        model.addAttribute("abc",codeOfPerson);
+        model.addAttribute("abc", codeOfPerson);
         PersonalCode personalCode = new PersonalCode();
         personalCode.setCodeForBook(codeOfPerson);
         personalCode.setBook(book);
@@ -52,27 +52,27 @@ public class PersonalCodeController {
     }
 
     @ExceptionHandler(QuantityException.class)
-    public String showErrorPage(){
+    public String showErrorPage() {
         return "error_quantity.html";
     }
 
     @PostMapping("/return-book")
-    public String returnBook(PersonalCode personalCode,Model model) throws NotFoundException {
+    public String returnBook(PersonalCode personalCode, Model model) throws NotFoundException {
         PersonalCode pCode = personalCodeService.findByCode(personalCode.getCodeForBook());
-        if (pCode == null){
+        if (pCode == null) {
             throw new NotFoundException();
         }
         Book book = pCode.getBook();
         Integer oldQuantity = book.getQuantity();
-        book.setQuantity(oldQuantity+1);
+        book.setQuantity(oldQuantity + 1);
         bookService.save(book);
         personalCodeService.delete(pCode.getId());
-        model.addAttribute("msg","Cảm ơn và hẹn gặp lại");
+        model.addAttribute("msg", "Cảm ơn và hẹn gặp lại");
         return "home";
     }
 
     @ExceptionHandler(NotFoundException.class)
-    public String showErrPage(){
+    public String showErrPage() {
         return "error_notfound";
     }
 }

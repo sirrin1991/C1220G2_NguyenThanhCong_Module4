@@ -7,7 +7,10 @@ import java.util.List;
 
 public interface RegisterService {
     void save(Register register);
+
     boolean checkExistEmail(String email);
+
     boolean checkExistPhoneNumber(String phoneNumber);
+
     List<Register> findAll();
 }

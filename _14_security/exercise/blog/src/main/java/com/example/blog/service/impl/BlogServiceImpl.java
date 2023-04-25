@@ -14,6 +14,7 @@ import java.util.List;
 public class BlogServiceImpl implements BlogService {
     @Autowired
     BlogRepository blogRepository;
+
     @Override
     public List<Blog> findAll(Integer quantity) {
         return blogRepository.getBlogList(quantity);
@@ -36,7 +37,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Page<Blog> findAllBLogByCategoryName(String name, Pageable pageable) {
-        return blogRepository.findAllByCategory_Name(name,pageable);
+        return blogRepository.findAllByCategory_Name(name, pageable);
     }
 
     @Override

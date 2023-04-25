@@ -12,19 +12,19 @@ import javax.validation.constraints.Size;
 @Table(name = "register")
 public class Register {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotBlank(message = "Can't not empty")
-    @Size(min = 5,max = 45,message = "From 5 to 45 characters")
+    @Size(min = 5, max = 45, message = "From 5 to 45 characters")
     private String firstName;
 
     @NotBlank(message = "Can't not empty")
-    @Size(min = 5,max = 45,message = "From 5 to 45 characters")
+    @Size(min = 5, max = 45, message = "From 5 to 45 characters")
     private String lastName;
 
     @NotEmpty(message = "Phone number can not empty")
-    @Pattern(regexp = "^\\d{10,11}$",message = "Phone's number has 10 or 11 numbers")
+    @Pattern(regexp = "^\\d{10,11}$", message = "Phone's number has 10 or 11 numbers")
     private String phone;
 
     @NotEmpty(message = "Email can not empty")

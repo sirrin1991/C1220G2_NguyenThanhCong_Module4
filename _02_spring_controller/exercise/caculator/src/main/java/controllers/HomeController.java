@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HomeController {
     @GetMapping
-    public String show(){
+    public String show() {
         return "index";
     }
 
@@ -16,41 +16,38 @@ public class HomeController {
     public String calculator(@RequestParam int firstNumber,
                              @RequestParam int secondNumber,
                              @RequestParam String submit,
-                             Model model){
+                             Model model) {
         double result = 0;
-        switch (submit){
+        String operation = "";
+        switch (submit) {
             case "Addition(+)":
                 result = firstNumber + secondNumber;
-
+                operation = "Addition";
                 break;
             case "Subtraction(-)":
                 result = firstNumber - secondNumber;
-
+                operation = "Subtraction";
                 break;
             case "Multiplication(X)":
                 result = firstNumber * secondNumber;
-
+                operation = "Multiplication";
                 break;
             case "Division(/)":
-                try{
-                    result = (double) firstNumber / secondNumber;
-                    addAttribute(model,firstNumber,secondNumber,result);
-                }catch (ArithmeticException e){
-                    e.printStackTrace();
-                }finally {
-                    model.addAttribute("result","Can not division by zero");
-                }
-
+                result = (double) firstNumber / secondNumber;
+                operation = "Division";
                 break;
+
         }
-        addAttribute(model,firstNumber,secondNumber,result);
+        addAttribute(model, firstNumber, secondNumber, result, operation);
         return "index";
     }
 
-    private void addAttribute(Model model,int firstNumber,int secondNumber, double result){
-        model.addAttribute("firstNumber",firstNumber);
-        model.addAttribute("secondNumber",secondNumber);
-        model.addAttribute("result",result);
-        model.addAttribute("operation", "addition");
+    private void addAttribute(Model model, int firstNumber, int secondNumber, double result, String operation) {
+        model.addAttribute("firstNumber", firstNumber);
+        model.addAttribute("secondNumber", secondNumber);
+        model.addAttribute("result", result);
+        model.addAttribute("operation", operation);
     }
+
+
 }

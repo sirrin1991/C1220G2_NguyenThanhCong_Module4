@@ -20,14 +20,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfa73ea2-b9d6-4717-abd7-e63bb3662eb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/entity/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/service/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/service/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/java/com/example/exercise/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bonus_practice/m4/src/main/resources/templates/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/service_of_furama/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_10_session_cookie/practice/items_cart/src/main/java/com/example/additemtocart/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../_10_session_cookie/practice/items_cart/src/main/java/com/example/additemtocart/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_12_ajax_jquery/exercise/blog/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../_12_ajax_jquery/exercise/blog/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_15_authorization/exercise/phan_quyen/src/main/java/com/example/blog/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../_15_authorization/exercise/phan_quyen/src/main/java/com/example/blog/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_15_authorization/exercise/phan_quyen/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../_15_authorization/exercise/phan_quyen/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_15_authorization/practice/depend_on_role/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../_15_authorization/practice/depend_on_role/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/AttachService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/contract/AttachService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/contract/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/CustomerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/customer/CustomerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/Division.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/employee/Division.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/EducationDegree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/employee/EducationDegree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/employee/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/EmployeeValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/employee/EmployeeValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/employee/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/RentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/service_of_furama/RentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/ServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/service_of_furama/ServiceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/customer/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/CustomerTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/customer/CustomerTypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/DivisionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/employee/DivisionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/EducationDegreeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/employee/EducationDegreeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/employee/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/PositionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/employee/PositionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/ICustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/ICustomerTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/ICustomerTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/IDivisionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/IDivisionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/IEducationDegreeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/IEducationDegreeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/IEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/IEmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/IPositionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/IPositionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/CustomerTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/CustomerTypeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/DivisionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/DivisionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/EducationDegreeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/EducationDegreeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/PositionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/java/com/example/demo/service/impl/PositionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/resources/templates/employee/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/resources/templates/employee/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/resources/templates/employee/employee-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/resources/templates/employee/employee-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/resources/templates/employee/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/resources/templates/employee/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/src/main/resources/validation-messenger.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/src/main/resources/validation-messenger.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +91,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../exercise/blog" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="SvnConfiguration">
@@ -63,6 +105,8 @@
       <option name="presentableId" value="Default" />
       <updated>1620996674551</updated>
       <workItem from="1620996692163" duration="526000" />
+      <workItem from="1624248542508" duration="24000" />
+      <workItem from="1627186777409" duration="27000" />
     </task>
     <servers />
   </component>
@@ -79,12 +123,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1620997219116">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1627186787472">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1620997219116" />
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1627186787472" />
     <state x="91" y="2" key="new project wizard" timestamp="1620997221857">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

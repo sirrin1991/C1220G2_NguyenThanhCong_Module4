@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout::header}"></head>
+<body>
+<div class="row mt-5">
+    <div class="col-12">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Start date</th>
+                <th scope="col">End date</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Description</th>
+                <th scope="col" colspan="2" style="text-align: center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${sales}">
+                <td th:text="${c.title}"></td>
+                <td th:text="${c.startDate}"></td>
+                <td th:text="${c.endDate}"></td>
+                <td th:text="${c.discount}"></td>
+                <td th:text="${c.description}"></td>
+                <td>
+                    <button type="button" class="btn btn-warning">
+                        <a th:href="@{/service/{id}/edit(id=${c.id})}">Edit</a>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="delete btn btn-danger" th:data-id="${c.id}">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -46,7 +46,7 @@
                             <th scope="col">ID Card</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Action</th>
+                            <th scope="col" colspan="3">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -60,18 +60,20 @@
                                     <a th:href="@{/employee/{id}/edit(id=${c.id})}">Edit</a>
                                 </button>
                             </td>
-                            <td><button type="button" class="delete btn btn-danger" th:data-id="${c.id}">Delete</button></td>
-                            <td><button type="button" class="view btn btn-warning" th:value="${c.id}">View</button></td>
-
-
-
+                            <td>
+                                <button type="button" class="delete btn btn-danger" th:data-id="${c.id}">Delete</button>
+                            </td>
+                            <td>
+                                <button type="button" class="view btn btn-warning" th:data-view="${c.id}">View</button>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="row ml-2">
-                <a th:href="@{'/customer'(page=${employees.number - 1})}" th:if="${employees.hasPrevious()}"> Previous </a>
+                <a th:href="@{'/customer'(page=${employees.number - 1})}" th:if="${employees.hasPrevious()}">
+                    Previous </a>
                 <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
                 <a th:href="@{'/customer'(page=${employees.number + 1})}" th:if="${employees.hasNext()}"> Next </a>
             </div>
@@ -116,7 +118,7 @@
     });
     $(document).ready(function () {
         $('.view').click(function (event) {
-            var id = $(this).val();
+            var id = $(this).data("view");
             $.ajax({
                 type: "GET",
                 url: `/employee/view/${id}`,

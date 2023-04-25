@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: header }"></head>
+<body>
+<h2 style="color: red">Are you sure to delete this service ?</h2>
+<form th:action="@{/service/delete}" th:object="${service}" method="post">
+    <input th:field="*{id}" hidden>
+    <p>Code : <input th:field="*{code}" readonly></p>
+    <p>Name : <input th:field="*{name}" readonly></p>
+    <br><br>
+    <input type="submit" class="btn btn-primary" name="submit" value="Cancel">
+    <input type="submit" class="btn btn-danger" name="submit" value="Delete">
+</form>
+</body>
+</html>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class PersonalCodeServiceImpl implements PersonalCodeService {
     @Autowired
     PersonalCodeRepository personalCodeRepository;
+
     @Override
     public void save(PersonalCode personalCode) {
         personalCodeRepository.save(personalCode);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
 <head th:fragment="head">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -38,7 +38,7 @@
                 </div>
             </nav>
         </div>
-        <div class="col-4"  sec:authorize="!isAuthenticated()">
+        <div class="col-4" sec:authorize="!isAuthenticated()">
             <button class="btn btn-outline-success my-2 my-sm-0" id="sign" type="button">
                 <a th:href="@{/login}">Đăng nhập</a>
             </button>

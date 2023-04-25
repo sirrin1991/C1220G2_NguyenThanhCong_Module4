@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div th:fragment="navbar">
+            <div class="container-fluid bg-warning d-flex justify-content-center"
+                 style="position: fixed; top: 0px;z-index: 200;">
+                <nav class="navbar navbar-expand-lg">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="row px-3 collapse navbar-collapse" style="height:45px;width: 1000px; max-width: 1000px;"
+                         id="navbarSupportedContent">
+                        <div class="col-3 d-flex align-items-center">
+                            <a th:href="@{/}">
+                                <img src="https://static.chotot.com/storage/marketplace/nha_white_logo.png"
+                                     style="height: 40px;" alt="">
+                            </a>
+                        </div>
+                        <div class="col-9 d-flex justify-content-end">
+                            <div class="h-100 d-flex align-items-center mr-3">
+                                <i class="fas fa-search mr-1" style="font-size: 20px;"></i>
+                                <span style="font-size: 16px;">
+                                    <a href="#" style="color: black; text-decoration: none">Tìm Rao Vặt</a>
+                                </span>
+                            </div>
+                            <div class="h-100 d-flex align-items-center mr-3">
+                                <i class="far fa-bell mr-1" style="font-size: 20px;"></i>
+                                <span style="font-size: 16px;">Thông
+                                    báo
+                                </span>
+                            </div>
+                            <div class="h-100 d-flex align-items-center mr-3">
+                                <i class="far fa-comments mr-1" style="font-size: 20px;"></i>
+                                <span style="font-size: 16px;">Chat</span>
+                            </div>
+                            <div class="h-100 d-flex align-items-center mr-3">
+                                <a style="color: black; text-decoration: none" th:href="@{/posts/profile}">
+                                    <i class="fas fa-user-circle mr-1" style="font-size: 20px;"></i>
+                                    <span style="font-size: 16px;">Tôi
+                                        bán
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="h-100 d-flex align-items-center mr-3">
+                                <div class="dropdown">
+                                    <div sec:authorize="!isAuthenticated()">
+                                        <!--                                        <i class="fas fa-ellipsis-h mr-1" style="font-size: 25px;"></i>-->
+                                        <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                                                style="background-color: #fc9807;">Thêm
+                                            <span class="caret" style="font-size: 16px; color: white; "></span>
+                                        </button>
+                                        <ul *ngIf="!user" class="dropdown-menu "
+                                            style="background-color: #fc9807; width: 100%;">
+                                            <li class="text-center">
+                                                <i class="fa fa-user-circle mr-1" aria-hidden="true"
+                                                   style="color: white;"></i>
+                                                <a th:href="@{/login}"
+                                                   style="color: black; font-size: 16px;">
+                                                    Đăng nhập
+                                                </a>
+                                            </li>
+                                            <li class="text-center">
+                                                <i class="fa fa-sign-in mr-1" style="color: white;"
+                                                   aria-hidden="true"></i>
+                                                <a th:href="@{/register}"
+                                                   style="color: black; font-size: 16px;">
+                                                    Đăng ký
+                                                </a>
+                                            </li>
+                                            <!--                                            <li class="text-center">-->
+                                            <!--                                                <a routerLink="/help" style="color: white; font-size: 16px;">Trợ giúp-->
+                                            <!--                                                </a>-->
+                                            <!--                                            </li>-->
+                                        </ul>
+                                    </div>
+                                    <div sec:authorize="isAuthenticated()">
+                                        <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                                                style="background-color: #fc9807;">
+                                            <i class="fa fa-user-circle mr-1" aria-hidden="true"
+                                               style="color: white;"></i>
+                                            <span sec:authentication="name">Username</span>
+                                            <span class="caret" style="font-size: 14px; color: white; "></span>
+                                        </button>
+                                        <ul *ngIf="!user" class="dropdown-menu "
+                                            style="background-color: #fc9807; width: 100%">
+                                            <li class="text-center">
+                                                <i class="fas fa-plus-circle mr-1" style="color: white;"
+                                                   aria-hidden="true"></i>
+                                                <a th:href="@{/posts/add}" style="color: black; font-size: 16px;">
+                                                    Đăng Tin
+                                                </a>
+                                            </li>
+                                            <li class="text-center">
+                                                <i class="fas fa-edit mr-1" style="color: white;"
+                                                   aria-hidden="true"></i>
+                                                <a th:href="@{/user/editUser}" style="color: black; font-size: 16px;">
+                                                    Chỉnh sửa thông tin
+                                                </a>
+                                            </li>
+                                            <li class="text-center">
+                                                <i class="fas fa-key mr-1" style="color: white;"
+                                                   aria-hidden="true"></i>
+                                                <a th:href="@{/user/changePassword}"
+                                                   style="color: black; font-size: 16px;">
+                                                    Đổi mật khẩu
+                                                </a>
+                                            </li>
+                                            <li class="text-center">
+                                                <i class="fa fa-sign-in mr-1" style="color: white;"
+                                                   aria-hidden="true"></i>
+                                                <a th:href="@{/logout}" style="color: black; font-size: 16px;">
+                                                    Đăng xuất
+                                                </a>
+                                            </li>
+                                            <!--                                            <li class="text-center">-->
+                                            <!--                                                <a routerLink="/help" style="color: white; font-size: 16px;">Trợ giúp-->
+                                            <!--                                                </a>-->
+                                            <!--                                            </li>-->
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+    </body>
+</html>

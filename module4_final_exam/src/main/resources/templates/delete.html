@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout::header}"></head>
+<body>
+
+<h3 style="color: red">Are you sure to delete this sale information ?</h3>
+<form th:action="@{/delete}" th:object="${sale}" method="post">
+    <input type="hidden" th:field="*{id}" >
+    <span>Title : </span> <span th:text="${sale.title}"></span>
+    <br><br>
+    <input type="submit" class="btn btn-primary" name="submit" value="Cancel">
+    <input type="submit" class="btn btn-danger" name="submit" value="Delete">
+</form>
+</body>
+</html>

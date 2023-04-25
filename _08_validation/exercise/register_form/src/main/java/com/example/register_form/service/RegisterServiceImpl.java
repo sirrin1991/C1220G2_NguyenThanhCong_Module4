@@ -13,9 +13,10 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     RegisterRepository registerRepository;
+
     @Override
     public void save(Register register) {
-       registerRepository.save(register);
+        registerRepository.save(register);
     }
 
     @Override

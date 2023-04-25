@@ -5,5 +5,5 @@ import com.example.handle_exception.util.DuplicateEmailException;
 
 
 public interface UserService {
-     void save(User user) throws DuplicateEmailException;
+    void save(User user) throws DuplicateEmailException;
 }

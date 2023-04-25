@@ -33,14 +33,14 @@ public class UserController {
 //    }
 
     @ExceptionHandler(DuplicateEmailException.class)
-    public String showException(){
+    public String showException() {
         return "list";
     }
 
     @PostMapping("/create")
-    public ModelAndView createUser(User user) throws DuplicateEmailException{
+    public ModelAndView createUser(User user) throws DuplicateEmailException {
         userService.save(user);
-        return new ModelAndView("/create","user",new User());
+        return new ModelAndView("/create", "user", new User());
     }
 
 

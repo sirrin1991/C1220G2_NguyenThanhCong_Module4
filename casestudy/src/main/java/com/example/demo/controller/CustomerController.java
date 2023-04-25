@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Customer;
-import com.example.demo.model.CustomerType;
+import com.example.demo.model.customer.Customer;
+import com.example.demo.model.customer.CustomerType;
 import com.example.demo.service.ICustomerService;
 import com.example.demo.service.ICustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,46 +26,50 @@ public class CustomerController {
     private ICustomerTypeService customerTypeService;
 
     @ModelAttribute("customerTypes")
-    public List<CustomerType> getCustomerTypeList(){
+    public List<CustomerType> getCustomerTypeList() {
         return customerTypeService.findAll();
     }
+
     @GetMapping
-    public ModelAndView showCustomerList(@PageableDefault(value = 2) Pageable pageable){
-        return new ModelAndView("/customer/customer-list","customers",
+    public ModelAndView showCustomerList(@PageableDefault(value = 2) Pageable pageable) {
+        return new ModelAndView("/customer/customer-list", "customers",
                 customerService.getListCustomer(pageable));
     }
+
     @GetMapping("/create")
-    public ModelAndView showCreateCustomerPage(){
-        return new ModelAndView("/customer/create","customer",new Customer());
+    public ModelAndView showCreateCustomerPage() {
+        return new ModelAndView("/customer/create", "customer", new Customer());
     }
+
     @PostMapping("/save")
-    public String addNewCustomer(Customer customer, Model model){
-        model.addAttribute("msg","successfully");
-        model.addAttribute("customer",new Customer());
+    public String addNewCustomer(Customer customer, Model model) {
+        model.addAttribute("msg", "successfully");
+        model.addAttribute("customer", new Customer());
         customerService.save(customer);
         return "/customer/create";
     }
+
     @GetMapping("/{id}/edit")
-    public ModelAndView showEditPage(@PathVariable Integer id){
-        return new ModelAndView("/customer/edit","customer",customerService.findById(id));
+    public ModelAndView showEditPage(@PathVariable Integer id) {
+        return new ModelAndView("/customer/edit", "customer", customerService.findById(id));
     }
 
     @PostMapping("/update")
-    public String updateCustomer(Customer customer,RedirectAttributes redirectAttributes){
-        redirectAttributes.addFlashAttribute("msg","successfully");
+    public String updateCustomer(Customer customer, RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("msg", "successfully");
         customerService.save(customer);
         return "redirect:/customer";
     }
 
     @GetMapping("/delete/{id}")
-    public ModelAndView showDeleteCustomerModal(@PathVariable Integer id){
-        return new ModelAndView("/customer/delete","customer",customerService.findById(id));
+    public ModelAndView showDeleteCustomerModal(@PathVariable Integer id) {
+        return new ModelAndView("/customer/delete", "customer", customerService.findById(id));
     }
 
     @PostMapping("/delete")
-    public String deleteCustomer(Customer customer, @RequestParam String submit, RedirectAttributes redirectAttributes){
-        if(submit.equals("Delete")){
-            redirectAttributes.addFlashAttribute("msg","successfully");
+    public String deleteCustomer(Customer customer, @RequestParam String submit, RedirectAttributes redirectAttributes) {
+        if (submit.equals("Delete")) {
+            redirectAttributes.addFlashAttribute("msg", "successfully");
             customerService.delete(customer.getId());
         }
         return "redirect:/customer";
@@ -74,9 +78,9 @@ public class CustomerController {
     @GetMapping("/search")
     public ModelAndView searchPage(@RequestParam String searchCode,
                                    @RequestParam String searchName,
-                                   @RequestParam String searchAddress){
+                                   @RequestParam String searchAddress) {
         List<Customer> customers = customerService.searchCustomer(searchCode, searchName, searchAddress);
-        return new ModelAndView("/customer/search","customers",customers);
+        return new ModelAndView("/customer/search", "customers", customers);
     }
 
 }

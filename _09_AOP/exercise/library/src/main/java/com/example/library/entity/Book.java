@@ -15,7 +15,7 @@ public class Book {
 
     private Integer quantity;
 
-    @OneToMany(mappedBy = "book",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private Set<PersonalCode> codeSet;
 
     public Book() {

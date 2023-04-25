@@ -27,12 +27,12 @@
                         <div class="form-group">
                             <input type="text" th:field="*{id}" hidden>
                             <label for="pn">Name :</label>
-                            <input type="text" class="form-control" id="pn" th:field="*{name}" >
+                            <input type="text" class="form-control" id="pn" th:field="*{name}">
                             <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
                         </div>
                         <div class="form-group">
                             <label for="datepicker">Birth day :</label>
-                            <input   id="datepicker" class="form-control"  th:field="*{birthday}">
+                            <input id="datepicker" class="form-control" th:field="*{birthday}">
                             <p style="color: red" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></p>
                         </div>
                         <div class="form-group">
@@ -70,14 +70,14 @@
                             <label for="educationDegree">Education Degree : </label>
                             <select id="educationDegree" th:field="*{educationDegree}">
                                 <option th:each="e : ${educationDegrees}" th:value="${e.id}"
-                                        th:text="${e.name}"  th:selected="${e.id}==${employee.id}" ></option>
+                                        th:text="${e.name}" th:selected="${e.id}==${employee.id}"></option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="position">Position : </label>
                             <select id="position" th:field="*{position}">
                                 <option th:each="p : ${positions}" th:value="${p.id}"
-                                        th:text="${p.positionName}"  th:selected="${p.id}==${employee.id}"></option>
+                                        th:text="${p.positionName}" th:selected="${p.id}==${employee.id}"></option>
                             </select>
                         </div>
                         <div class="form-group">

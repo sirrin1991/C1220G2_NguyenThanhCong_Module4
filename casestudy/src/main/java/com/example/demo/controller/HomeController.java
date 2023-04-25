@@ -13,19 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class HomeController {
     @GetMapping
-    public String showHomePage(){
+    public String showHomePage() {
         return "/home";
     }
+
     @GetMapping("/login")
-    public String showLoginPage(){
+    public String showLoginPage() {
         return "/login";
     }
+
     @GetMapping("/403")
-    public String show403Page(){
+    public String show403Page() {
         return "/403";
     }
+
     @GetMapping("/logout")
-    public String logout(HttpServletRequest request, HttpServletResponse response){
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);

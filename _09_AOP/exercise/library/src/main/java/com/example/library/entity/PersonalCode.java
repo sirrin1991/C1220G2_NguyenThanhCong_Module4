@@ -13,7 +13,7 @@ public class PersonalCode {
     private String codeForBook;
 
     @ManyToOne
-    @JoinColumn(name = "book_id",referencedColumnName = "book_id")
+    @JoinColumn(name = "book_id", referencedColumnName = "book_id")
     private Book book;
 
     public PersonalCode() {

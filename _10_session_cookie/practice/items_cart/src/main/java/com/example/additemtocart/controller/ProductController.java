@@ -3,6 +3,7 @@ package com.example.additemtocart.controller;
 import com.example.additemtocart.model.Cart;
 import com.example.additemtocart.model.Product;
 import com.example.additemtocart.service.ProductService;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ public class ProductController {
     public Cart getUpCart(){
         return new Cart();
     }
+
     @GetMapping("/create")
     public ModelAndView showCreateProductPage(){
         return new ModelAndView("/product/create","product",new Product());
@@ -79,7 +81,7 @@ public class ProductController {
     }
     @PostMapping("/edit-product-in-cart")
     public String editProductQuantityInCart(@RequestParam Integer id,
-                                                  @RequestParam Integer productQuantity,Cart cart){
+                                            @RequestParam (defaultValue = "0") Integer productQuantity, Cart cart){
         Product product = productService.findById(id);
         if(productQuantity < 0){
             return "error-page";

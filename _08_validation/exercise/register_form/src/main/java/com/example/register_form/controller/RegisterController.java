@@ -19,14 +19,15 @@ public class RegisterController {
     RegisterService registerService;
 
     @GetMapping
-    public ModelAndView showRegisterForm(){
-        return new ModelAndView("register","register",new Register());
+    public ModelAndView showRegisterForm() {
+        return new ModelAndView("register", "register", new Register());
     }
+
     @PostMapping("/create")
-    public String createRegister(@Valid Register register, BindingResult bindingResult, Model model){
-        if(bindingResult.hasErrors()){
+    public String createRegister(@Valid Register register, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
             return "register";
-        }else {
+        } else {
             registerService.save(register);
             return "result";
         }

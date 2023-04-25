@@ -22,6 +22,7 @@ import java.util.Set;
 public class UserServiceImpl implements UserService, UserDetailsService {
     @Autowired
     UserRepository userRepository;
+
     @Override
     public User save(User user) {
         return userRepository.save(user);

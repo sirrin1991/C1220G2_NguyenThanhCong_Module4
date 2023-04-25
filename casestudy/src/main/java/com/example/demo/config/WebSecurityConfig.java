@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Qualifier("userServiceImpl")
@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 //Cấu hình cho các đường dẫn đăng nhập bằng Role là Member, Admin
                 .antMatchers("/customer/**").hasAnyRole("MEMBER", "ADMIN")
                 //cấu hình cho đường dẫn admin, chỉ có Role admin mới vào được
-                .antMatchers("/employee/**","/employee").hasRole("ADMIN")
+                .antMatchers("/employee/**").hasRole("ADMIN")
                 .and()
                 //formlogin
                 .formLogin()
@@ -76,7 +76,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     public PersistentTokenRepository persistentTokenRepository() {
         return new InMemoryTokenRepositoryImpl();
     }
-
 
 
 }

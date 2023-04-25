@@ -8,9 +8,16 @@ import java.util.List;
 
 public interface BlogService {
     List<Blog> findAll(Integer quantity);
+
+
     void save(Blog blog);
+
+
     void deleteById(Integer id);
-    Blog findById (Integer id);
+
+    Blog findById(Integer id);
+
     Page<Blog> findAllBLogByCategoryName(String name, Pageable pageable);
+
     List<Blog> findAllBlogByName(String name);
 }

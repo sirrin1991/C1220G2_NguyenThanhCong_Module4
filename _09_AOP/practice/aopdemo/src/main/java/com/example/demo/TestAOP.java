@@ -7,15 +7,17 @@ public class TestAOP {
         this.message = "hello bros";
     }
 
-    public void mt1(){
+    public void mt1() {
         System.out.println(" start mt1 ");
         System.out.println(" end mt1 ");
     }
-    public void mt2(){
+
+    public void mt2() {
         System.out.println(" start mt2 ");
         System.out.println(" end mt2 ");
     }
-    public void mt3(){
+
+    public void mt3() {
         System.out.println(3);
         System.out.println(33);
         throw new IllegalArgumentException("error parameter");

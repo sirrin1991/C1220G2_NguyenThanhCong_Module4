@@ -18,7 +18,7 @@ public class Blog {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "category_id",nullable = false,referencedColumnName = "category_id")
+    @JoinColumn(name = "category_id", nullable = false, referencedColumnName = "category_id")
     private Category category;
 
     public Blog() {

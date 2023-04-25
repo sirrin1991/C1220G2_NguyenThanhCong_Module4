@@ -43,11 +43,13 @@ public class CustomerController {
         model.addAttribute("customer", customerService.findById(id));
         return "edit";
     }
+
     @PostMapping("/update")
     public String update(Customer customer) {
         customerService.save(customer);
         return "redirect:/";
     }
+
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable int id, Model model) {
         model.addAttribute("customer", customerService.findById(id));

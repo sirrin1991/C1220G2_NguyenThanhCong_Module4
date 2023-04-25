@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface RegisterRepository extends JpaRepository<Register,Integer> {
+public interface RegisterRepository extends JpaRepository<Register, Integer> {
     boolean existsRegisterByEmail(String email);
+
     boolean existsRegisterByPhone(String phoneNumber);
 }

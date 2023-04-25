@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div th:replace="~{layout/navbar::navbar}"></div>
+<div style="height: 100px"></div>
+
+<aside class="col-12 d-flex justify-content-center align-items-center">
+    <article class="col-md-4" style="background-color: burlywood">
+        <a href="/login" class="float-right btn btn-outline-warning" style="background-color: #FFBF00; color: black">Đăng
+            Nhập</a>
+        <h4 class="card-title mb-4 mt-1">Đăng Ký</h4>
+        <hr>
+        <form th:action="@{/register}" method="post" th:object="${registerUser}">
+            <div class="form-group">
+                <label for="email">Email<i class="text-danger">*</i> :</label>
+                <input th:field="*{email}" name="email" id="email" class="form-control" placeholder="Nhập email"
+                       type="text">
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></p>
+            </div> <!-- form-group// -->
+            <div class="form-group">
+                <label for="password">Password<i class="text-danger">*</i> :</label>
+                <input th:field="*{password}" class="form-control" id="password" name="password"
+                       placeholder="Nhập password" type="password">
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></p>
+
+            </div> <!-- form-group// -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password<i class="text-danger">*</i> :</label>
+                <input th:field="*{matchingPassword}" class="form-control" id="confirmPassword" name="confirmPassword"
+                       placeholder="Nhập password" type="password">
+                <p th:if="${#fields.hasErrors('matchingPassword')}" th:errors="*{matchingPassword}"
+                   class="text-danger"></p>
+
+            </div> <!-- form-group// -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-warning btn-block"> Đăng Ký</button>
+                    </div> <!-- form-group// -->
+                </div>
+            </div> <!-- .row// -->
+        </form>
+    </article>
+
+</aside> <!-- col.// -->
+<div style="height: 100px"></div>
+<footer th:replace="~{layout/footer :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout::header}"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:insert="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row mt-5"></div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <button class="btn btn-primary">
+                <a th:href="@{/}" style="color: white">Back to home page</a>
+            </button>
+            <th:block th:if="${msg}">
+                <h3 style="color: blue" th:text="${msg}"></h3>
+            </th:block>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="row">
+                <h3 style="text-align: center">Create new sale information</h3>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <form th:action="@{/save}" th:object="${sale}" method="post">
+                        <div class="form-group">
+                            <label for="title">Title :</label>
+                            <input type="text" class="form-control" id="title" th:field="*{title}">
+                            <p style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="datepicker">Start date :</label>
+                            <input class="form-control datepicker" id="datepicker" th:field="*{startDate}">
+                            <p style="color: red" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="endDate">End date :</label>
+                            <input  class="form-control datepicker" id="endDate" th:field="*{endDate}">
+                            <p style="color: red" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="discount">Discount :</label>
+                            <input type="text" class="form-control" id="discount" th:field="*{discount}">
+                            <p style="color: red" th:if="${#fields.hasErrors('discount')}"
+                               th:errors="*{discount}"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description :</label>
+                            <textarea class="form-control" id="description" th:field="*{description}"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary ml-1" type="submit">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="~{layout::bootstrap}"></div>
+</body>
+<script>
+    $(function () {
+        $(".datepicker").datepicker({
+            dateFormat: 'dd-mm-yy',
+            changeYear: true,
+            changeMonth: true,
+            minDate: "0",
+        });
+    });
+</script>
+</html>

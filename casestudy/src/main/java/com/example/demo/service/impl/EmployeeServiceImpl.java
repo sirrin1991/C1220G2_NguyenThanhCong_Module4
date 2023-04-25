@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.Employee;
-import com.example.demo.repository.EmployeeRepository;
+import com.example.demo.model.employee.Employee;
+import com.example.demo.repository.employee.EmployeeRepository;
 import com.example.demo.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class EmployeeServiceImpl implements IEmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
+
     @Override
     public Page<Employee> findAll(Pageable pageable) {
         return employeeRepository.findAll(pageable);
@@ -54,6 +55,6 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Override
     public Boolean existsEmployeeByEmailAndIdNot(String email, Integer id) {
-        return employeeRepository.existsEmployeeByEmailAndIdNot(email,id);
+        return employeeRepository.existsEmployeeByEmailAndIdNot(email, id);
     }
 }

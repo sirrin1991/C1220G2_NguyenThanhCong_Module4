@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Division;
+import com.example.demo.model.employee.Division;
 
 import java.util.List;
 

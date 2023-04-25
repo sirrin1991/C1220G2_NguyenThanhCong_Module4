@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout::header}"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:insert="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <th:block th:if="${msg}">
+                <h3 style="color: blue" th:text="${msg}"></h3>
+            </th:block>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row ml-1 mt-3">
+        <div class="col-12">
+            <form th:action="@{/search}">
+                <input type="text" name="discount" placeholder="Discount">
+                <input type="text" name="startDate" placeholder="Start date">
+                <input type="text" name="endDate" placeholder="End date">
+                <button class="search btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Start date</th>
+                    <th scope="col">End date</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="c : ${sales}">
+                    <td th:text="${c.title}"></td>
+                    <td th:text="${c.startDate}"></td>
+                    <td th:text="${c.endDate}"></td>
+                    <td th:text="${c.discount}"></td>
+                    <td th:text="${c.description}"></td>
+                    <td>
+                        <button type="button" class="btn btn-warning">
+                            <a th:href="@{/service/{id}/edit(id=${c.id})}">Edit  </a>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="delete btn btn-danger" th:data-id="${c.id}">Delete</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:insert="~{layout::bootstrap}"></div>
+</body>
+<script>
+    $(document).ready(function () {
+        $('.delete').click(function (event) {
+
+            var id = $(this).data("id");
+            $.ajax({
+                type: "GET",
+                url: `/delete/${id}`,
+                dataType: "HTML",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                    $("#exampleModal").modal("show");
+                }
+            })
+            event.preventDefault();
+        });
+    });
+</script>
+</html>

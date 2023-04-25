@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{layout :: header }"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div th:replace="~{layout::menu}"></div>
+        </div>
+    </div>
+    <div class="row mt-5"></div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <button class="btn btn-primary">
+                <a th:href="@{/contract}" style="color: white">Back to contract's list</a>
+            </button>
+            <!--            <th:block th:if="${msg}">-->
+            <!--                <h3 style="color: blue" th:text="${msg}"></h3>-->
+            <!--            </th:block>-->
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="row">
+                <h3 style="text-align: center">Create new contract</h3>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <form th:action="@{/contract/save}" th:object="${contract}" method="post">
+                        <div class="form-group">
+                            <label for="code">Code :</label>
+                            <input type="text" class="form-control" id="code" th:field="*{code}">
+                            <p style="color: red" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sd">Start date</label>
+                            <input type="text" id="sd" th:field="*{startDate}" class="date start"/> to
+                            <label for="ed">End date</label>
+                            <input type="text" id="ed" th:field="*{endDate}" class="date end"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sv">Service code : </label>
+                            <select id="sv" th:field="*{service}" class="form-control">
+                                <option th:each="s : ${services}" th:value="${s.id}"
+                                        th:text="${s.code}"></option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="c">Customer code : </label>
+                            <select id="c" th:field="*{customer}" class="form-control">
+                                <option th:each="s : ${customers}" th:value="${s.id}"
+                                        th:text="${s.code}"></option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deposit">Deposit :</label>
+                            <input type="text" class="form-control" id="deposit" th:field="*{deposit}">
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary ml-1" type="submit">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div th:insert="~{layout :: bootstrap}"></div>
+</body>
+<!--<script type="text/javascript" src="datepair.js"></script>-->
+<!--<script type="text/javascript" src="jquery.datepair.js"></script>-->
+<!--<script>-->
+
+<!--    $('#jqueryExample .date').datepicker({-->
+<!--        'format': 'm/d/yyyy',-->
+<!--        'autoclose': true-->
+<!--    });-->
+
+<!--    $('#jqueryExample').datepair();-->
+<!--</script>-->
+</html>

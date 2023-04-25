@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div th:replace="~{layout/navbar::navbar}"></div>
+<div style="height: 100px"></div>
+
+<aside class="d-flex justify-content-center align-items-center">
+    <div class="row">
+        <div class="col-12">
+            <h3>Bạn không có quyền vào trang này hoặc tài khoản của bạn đã bị khóa</h3>
+        </div>
+        <div class="col-12">
+            <a class="btn btn-outline-danger">Xin trợ giúp</a>
+        </div>
+    </div>
+
+</aside> <!-- col.// -->
+<div style="height: 100px"></div>
+
+
+<footer th:replace="~{layout/footer :: footer}"></footer>
+</body>
+</html>

@@ -19,14 +19,13 @@
             <div class="col-3"></div>
             <div class="col-6">
                 <form th:action="@{/product/edit-product-in-cart}" method="post">
-
                     <div class="form-group">
                         <input name="id" hidden th:value="${id}">
-                        <label for="name">Product's name :</label>
+                        <label for="name">Product's name </label>
                         <input type="text" name="productName" th:value="${nameProduct}" id="name" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="quantity">Quantity</label>
+                        <label for="quantity">Product quantity</label>
                         <input type="number" name="productQuantity" th:value="*{quantityProduct}" id="quantity">
                     </div>
                     <div class="form-group">

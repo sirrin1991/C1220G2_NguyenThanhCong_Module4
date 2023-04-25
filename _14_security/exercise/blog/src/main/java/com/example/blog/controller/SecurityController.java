@@ -19,21 +19,19 @@ import javax.servlet.http.HttpServletResponse;
 public class SecurityController {
 
 
-
     @GetMapping("/login")
-    public String getLoginPage(Model model){
+    public String getLoginPage(Model model) {
         return "authentication/login";
     }
 
 
-
     @GetMapping("/403")
-    public String getPage403(){
+    public String getPage403() {
         return "authentication/403";
     }
 
     @GetMapping("/logout")
-    public String logout(HttpServletRequest request, HttpServletResponse response){
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);

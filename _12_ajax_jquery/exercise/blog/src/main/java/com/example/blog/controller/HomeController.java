@@ -1,7 +1,4 @@
 package com.example.blog.controller;
-
-
-import com.example.blog.entity.Blog;
 import com.example.blog.entity.Category;
 import com.example.blog.service.BlogService;
 import com.example.blog.service.CategoryService;

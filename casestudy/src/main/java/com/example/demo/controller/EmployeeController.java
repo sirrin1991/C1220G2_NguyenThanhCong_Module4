@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.*;
+import com.example.demo.model.employee.*;
 import com.example.demo.service.impl.*;
 import com.example.demo.ultil.EncrypPasswordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -68,15 +68,19 @@ public class EmployeeController {
     public String saveNewEmployee(@Valid @ModelAttribute("employee") Employee employee,
                                   BindingResult bindingResult,
                                   Model model) {
-        employeeValidation.validate(employee,bindingResult);
-        if (bindingResult.hasErrors()){
+        employeeValidation.validate(employee, bindingResult);
+        if (bindingResult.hasErrors()) {
             return "/employee/create";
         }
         User user = new User();
         user.setEmail(employee.getEmail());
         user.setPassword(EncrypPasswordUtils.EncrypPasswordUtils(employee.getIdCard()));
         Role roleEntity = roleService.findByName("ROLE_MEMBER");
+        Role roleEntity2 = roleService.findByName("ROLE_ADMIN");
         Set<Role> roleSet = new HashSet<>();
+        if (employee.getPosition().getId() == 1 || employee.getPosition().getId() == 2) {
+            roleSet.add(roleEntity2);
+        }
         roleSet.add(roleEntity);
         user.setRoles(roleSet);
         employee.setUser(user);
@@ -91,36 +95,39 @@ public class EmployeeController {
         Employee employee = employeeService.findById(id);
         return new ModelAndView("/employee/edit", "employee", employee);
     }
+
     @PostMapping("/update")
     public String updateEmployee(@Valid @ModelAttribute("employee") Employee employee,
                                  BindingResult bindingResult,
-                                 RedirectAttributes redirectAttributes){
-        employeeValidation.validate(employee,bindingResult);
-        if (bindingResult.hasErrors()){
+                                 RedirectAttributes redirectAttributes) {
+        employeeValidation.validate(employee, bindingResult);
+        if (bindingResult.hasErrors()) {
             return "/employee/edit";
         }
         employeeService.save(employee);
-        redirectAttributes.addFlashAttribute("msg","Successfully");
+        redirectAttributes.addFlashAttribute("msg", "Successfully");
         return "redirect:/employee";
     }
 
     @GetMapping("/view/{id}")
-    public ModelAndView showEmployee(@PathVariable Integer id){
+    public ModelAndView showEmployee(@PathVariable Integer id) {
         Employee employee = employeeService.findById(id);
-        return new ModelAndView("/employee/view","employee",employee);
+        return new ModelAndView("/employee/view", "employee", employee);
     }
+
     @GetMapping("/delete/{id}")
-    public ModelAndView showDeleteEmployeePage(@PathVariable Integer id){
+    public ModelAndView showDeleteEmployeePage(@PathVariable Integer id) {
         Employee employee = employeeService.findById(id);
-        return new ModelAndView("/employee/delete","employee",employee);
+        return new ModelAndView("/employee/delete", "employee", employee);
     }
 
     @PostMapping("/delete")
-    public String deleteCustomer(Employee employee, @RequestParam String submit, RedirectAttributes redirectAttributes){
-        if(submit.equals("Delete")){
-            redirectAttributes.addFlashAttribute("msg","successfully");
+    public String deleteCustomer(Employee employee, @RequestParam String submit, RedirectAttributes redirectAttributes) {
+        if (submit.equals("Delete")) {
+            redirectAttributes.addFlashAttribute("msg", "successfully");
             employeeService.delete(employee.getId());
         }
         return "redirect:/employee";
     }
+
 }

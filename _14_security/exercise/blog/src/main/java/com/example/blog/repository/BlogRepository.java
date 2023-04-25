@@ -15,9 +15,10 @@ import java.util.List;
 @Repository
 public interface BlogRepository extends JpaRepository<Blog, Integer> {
     Page<Blog> findAllByCategory_Name(String name, Pageable pageable);
+
     List<Blog> findBlogByNameContaining(String name);
 
 
-    @Query(value="select * from blog limit ?1",nativeQuery=true)
+    @Query(value = "select * from blog limit ?1", nativeQuery = true)
     List<Blog> getBlogList(Integer quantity);
 }

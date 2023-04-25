@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.example.demo.model.employee.Employee;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;

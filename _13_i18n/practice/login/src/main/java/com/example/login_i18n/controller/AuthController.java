@@ -18,9 +18,9 @@ public class AuthController {
 
     @PostMapping("/doLogin")
     public ModelAndView doLogin(@ModelAttribute User user) {
-        if(user.getUsername().equals("admin") && user.getPassword().equals("123456")){
+        if (user.getUsername().equals("admin") && user.getPassword().equals("123456")) {
             ModelAndView modelAndView = new ModelAndView("/dashboard");
-            modelAndView.addObject("user",user);
+            modelAndView.addObject("user", user);
             return modelAndView;
         }
         return new ModelAndView("/error");

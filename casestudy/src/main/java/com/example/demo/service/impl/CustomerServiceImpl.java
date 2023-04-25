@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.Customer;
-import com.example.demo.repository.CustomerRepository;
+import com.example.demo.model.customer.Customer;
+import com.example.demo.repository.customer.CustomerRepository;
 import com.example.demo.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +15,7 @@ import java.util.List;
 public class CustomerServiceImpl implements ICustomerService {
     @Autowired
     private CustomerRepository customerRepository;
+
     @Override
     public Page<Customer> getListCustomer(Pageable pageable) {
         return customerRepository.findAll(pageable);

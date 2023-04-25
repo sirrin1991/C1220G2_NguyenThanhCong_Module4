@@ -9,24 +9,24 @@
     </a>
 </p>
 <div th:object="${blog}">
-<table id = "blog">
-    <thead>
-    <tr>
-        <th th:text="*{blogName}"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td th:text="*{content}"></td>
-    </tr>
-    <tr>
-        <td>
-            <a th:href="@{/{id}/edit(id=${blog.getId()})}">edit |</a>
-            <a th:href="@{/{id}/delete(id=${blog.getId()})}">delete |</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+    <table id="blog">
+        <thead>
+        <tr>
+            <th th:text="*{blogName}"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="*{content}"></td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/{id}/edit(id=${blog.getId()})}">edit |</a>
+                <a th:href="@{/{id}/delete(id=${blog.getId()})}">delete |</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <footer th:replace="/layout :: footer"></footer>
 </body>

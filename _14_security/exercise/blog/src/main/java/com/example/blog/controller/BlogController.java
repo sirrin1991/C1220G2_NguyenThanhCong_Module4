@@ -26,51 +26,51 @@ public class BlogController {
     CategoryService categoryService;
 
     @ModelAttribute("categories")
-    public List<Category> getCategories(){
+    public List<Category> getCategories() {
         return categoryService.findAll();
     }
 
     @GetMapping("/create")
-    public String showCreateBlogPage(Model model){
-        model.addAttribute("blog",new Blog());
+    public String showCreateBlogPage(Model model) {
+        model.addAttribute("blog", new Blog());
         return "/blog/create";
     }
 
     @PostMapping("/create-blog")
-    public String createNewBlog(Blog blog,Model model){
+    public String createNewBlog(Blog blog, Model model) {
         blogService.save(blog);
-        model.addAttribute("msg","Saved");
-        model.addAttribute("blog",new Blog());
+        model.addAttribute("msg", "Saved");
+        model.addAttribute("blog", new Blog());
         return "/blog/create";
     }
 
     @GetMapping("/{id}/edit")
-    public ModelAndView showEditBlogPage(@PathVariable Integer id){
-        return new ModelAndView("/blog/edit","blog",blogService.findById(id));
+    public ModelAndView showEditBlogPage(@PathVariable Integer id) {
+        return new ModelAndView("/blog/edit", "blog", blogService.findById(id));
     }
 
     @PostMapping("/edit-blog")
-    public String editBlog( Blog blog , RedirectAttributes ra){
+    public String editBlog(Blog blog, RedirectAttributes ra) {
         blogService.save(blog);
-        ra.addFlashAttribute("msg","Edited successfully");
+        ra.addFlashAttribute("msg", "Edited successfully");
         return "redirect:/";
     }
 
     @GetMapping("/{id}/delete")
-    public ModelAndView showDeleteBlogPage(@PathVariable Integer id){
-        return new ModelAndView("/blog/delete","blog",blogService.findById(id));
+    public ModelAndView showDeleteBlogPage(@PathVariable Integer id) {
+        return new ModelAndView("/blog/delete", "blog", blogService.findById(id));
     }
 
     @PostMapping("/delete-blog")
-    public String deleteBlog(Blog blog , RedirectAttributes ra){
+    public String deleteBlog(Blog blog, RedirectAttributes ra) {
         blogService.deleteById(blog.getId());
-        ra.addFlashAttribute("msg","Deleted successfully");
+        ra.addFlashAttribute("msg", "Deleted successfully");
         return "redirect:/";
     }
 
     @GetMapping("/{id}/view")
-    public ModelAndView showBlogView(@PathVariable Integer id){
-        return new ModelAndView("/blog/view","blog",blogService.findById(id));
+    public ModelAndView showBlogView(@PathVariable Integer id) {
+        return new ModelAndView("/blog/view", "blog", blogService.findById(id));
     }
 
 

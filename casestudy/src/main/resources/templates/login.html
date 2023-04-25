@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Glassy Login Form A Responsive Widget Template :: w3layouts</title>
     <!-- Meta tag Keywords -->
@@ -27,7 +27,7 @@
 <body>
 <!--header-->
 <div class="header-w3l">
-    <h1>Glassy Login Form</h1>
+    <h1>Login</h1>
 </div>
 <!--//header-->
 <!--main-->
@@ -36,7 +36,7 @@
     <div class="wthree-form">
         <h2>Fill out the form below to login</h2>
         <form th:action="@{/login}" method="post">
-            <p th:if="${param.error}"  style="text-align: center;color: red">Đăng nhập thất bại</p>
+            <p th:if="${param.error}" style="text-align: center;color: red">Đăng nhập thất bại</p>
             <div class="form-sub-w3">
                 <input type="text" name="email" placeholder="Username "/>
                 <div class="icon-w3">
@@ -50,7 +50,7 @@
                 </div>
             </div>
             <label class="anim">
-                <input type="checkbox" class="checkbox">
+                <input type="checkbox" name="remember-me" class="checkbox">
                 <span>Remember Me</span>
                 <a href="#">Forgot Password</a>
             </label>

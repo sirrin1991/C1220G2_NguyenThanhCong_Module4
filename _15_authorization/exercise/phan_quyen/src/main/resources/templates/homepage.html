@@ -45,7 +45,9 @@
         </div>
         <div sec:authorize="isAuthenticated()">
             <span sec:authentication="name">Username</span>
+            <a th:href="@{/logout}">log out</a>
         </div>
+
     </div>
     <div class="row">
         <div class="col-4"></div>

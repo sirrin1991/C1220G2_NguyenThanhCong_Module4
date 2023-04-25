@@ -25,11 +25,11 @@
                         <div class="form-group">
                             <input type="text" th:field="*{id}" hidden>
                             <label for="code">Code :</label>
-                            <input type="text" class="form-control" id="code" th:field="*{code}" >
+                            <input type="text" class="form-control" id="code" th:field="*{code}">
                         </div>
                         <div class="form-group">
                             <label for="pn">Name :</label>
-                            <input type="text" class="form-control" id="pn" th:field="*{name}" >
+                            <input type="text" class="form-control" id="pn" th:field="*{name}">
                         </div>
                         <div class="form-group">
                             <label for="bd">Birth day :</label>
@@ -37,9 +37,11 @@
                         </div>
                         <div class="form-group">
                             <span>Please select your gender:</span>
-                            <select  th:field="*{gender}">
-                                <option th:value="true" th:text="Female" th:selected="${customer.gender}== true"></option>
-                                <option th:value="false" th:text="Male" th:selected="${customer.gender}== false"></option>
+                            <select th:field="*{gender}">
+                                <option th:value="true" th:text="Female"
+                                        th:selected="${customer.gender}== true"></option>
+                                <option th:value="false" th:text="Male"
+                                        th:selected="${customer.gender}== false"></option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -62,7 +64,8 @@
                             <label for="type">Customer's type : </label>
                             <select id="type" th:field="*{customerType}">
                                 <option th:each="p : ${customerTypes}" th:value="${p.id}"
-                                        th:text="${p.name}"  th:selected="${customer.customerType.id}== ${p.id}"></option>
+                                        th:text="${p.name}"
+                                        th:selected="${customer.customerType.id}== ${p.id}"></option>
                             </select>
                         </div>
                         <div class="form-group">

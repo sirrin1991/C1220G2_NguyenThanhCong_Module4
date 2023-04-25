@@ -5,47 +5,47 @@
 
 <table class="table table-striped" th:object="${employee}">
     <tr>
-        <td>Name</td>
+        <td>Name :</td>
         <td th:text="${employee.name}"></td>
     </tr>
     <tr>
-        <td>Name</td>
+        <td>ID card :</td>
         <td th:text="${employee.idCard}"></td>
     </tr>
     <tr>
-        <td>Name</td>
+        <td>Phone :</td>
         <td th:text="${employee.phone}"></td>
     </tr>
     <tr>
-        <td>Name</td>
+        <td>Email :</td>
         <td th:text="${employee.email}"></td>
     </tr>
     <tr>
-        <td>Name</td>
+        <td>Birthday :</td>
         <td th:text="${employee.birthday}"></td>
     </tr>
     <tr>
-        <td >Name</td>
+        <td>Salary :</td>
         <td th:text="${employee.salary}"></td>
     </tr>
     <tr>
-        <td>Name</td>
+        <td>Address :</td>
         <td th:text="${employee.address}"></td>
     </tr>
     <tr>
-        <td>Name</td>
+        <td>Division :</td>
         <td th:text="${employee.division.name}"></td>
     </tr>
     <tr>
-        <td>Name</td>
+        <td>Education degree :</td>
         <td th:text="${employee.educationDegree.name}"></td>
     </tr>
     <tr>
-        <td>Name</td>
+        <td>Position :</td>
         <td th:text="${employee.position.positionName}"></td>
     </tr>
     <tr>
-        <td>Name</td>
+        <td>Email :</td>
         <td th:text="${employee.user.email}"></td>
     </tr>
     <tr>
@@ -58,6 +58,6 @@
 </table>
 
 
-<div th:insert="~{layout :: bootstrap}"></div>
+<!--<div th:insert="~{layout :: bootstrap}"></div>-->
 </body>
 </html>

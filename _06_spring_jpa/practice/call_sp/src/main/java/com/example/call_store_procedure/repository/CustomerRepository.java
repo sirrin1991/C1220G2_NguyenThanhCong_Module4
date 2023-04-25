@@ -9,10 +9,10 @@ import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 
 
-public interface CustomerRepository extends JpaRepository<Customer,Integer> {
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     @Transactional
     @Modifying
-    @Query(value="call delete_by_id(:id);",nativeQuery = true)
+    @Query(value = "call delete_by_id(:id);", nativeQuery = true)
     void userDelete(@Param("id") Integer id);
 
 }

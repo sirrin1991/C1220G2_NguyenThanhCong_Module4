@@ -2,15 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:insert="~{layout :: header }"></head>
 <body>
-<body>
 <h2 style="color: red">Are you sure to delete this employee ?</h2>
-<form th:action="@{/employee/delete}" th:object="${employee}" method="post" >
+<form th:action="@{/employee/delete}" th:object="${employee}" method="post">
     <input th:field="*{id}" hidden>
     <p>Code :</p>
     <input th:field="*{name}" readonly>
     <p>Name :</p>
     <input th:field="*{idCard}" readonly><br><br>
-    <input type="submit" class="btn btn-primary" name="submit"  value="Cancel">
+    <input type="submit" class="btn btn-primary" name="submit" value="Cancel">
     <input type="submit" class="btn btn-danger" name="submit" value="Delete">
 </form>
 </body>

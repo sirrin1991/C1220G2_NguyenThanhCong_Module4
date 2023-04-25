@@ -3,12 +3,12 @@ package com.blog.blog_app.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="blog")
+@Table(name = "blog")
 public class Blog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
     private String blogName;

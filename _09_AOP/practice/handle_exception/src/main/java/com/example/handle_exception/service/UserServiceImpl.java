@@ -11,12 +11,13 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
+
     @Override
     public void save(User user) throws DuplicateEmailException {
-       try {
-           userRepository.save(user);
-       }catch (DataIntegrityViolationException e){
-           throw new DuplicateEmailException();
-       }
+        try {
+            userRepository.save(user);
+        } catch (DataIntegrityViolationException e) {
+            throw new DuplicateEmailException();
+        }
     }
 }
